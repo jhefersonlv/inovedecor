@@ -3,7 +3,7 @@ const portfolioProjects = [
   {
     title: 'Bancada de Cozinha Gourmet',
     category: 'Bancadas',
-    image: '../assets/img01.jpg',
+    image: '../assets/01.jpeg',
   },
   {
     title: 'Bancada em lamina ultracompacta',
