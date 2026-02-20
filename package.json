@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "build-webpack": "webpack"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -67,7 +68,9 @@
     "@tailwindcss/vite": "^4.2.0",
     "@vitejs/plugin-react": "4.7.0",
     "tailwindcss": "^4.2.0",
-    "vite": "6.3.5"
+    "vite": "^6.4.1",
+    "webpack": "^5.105.2",
+    "webpack-cli": "^6.0.1"
   },
   "peerDependencies": {
     "react": "18.3.1",
@@ -85,5 +88,18 @@
     "overrides": {
       "vite": "6.3.5"
     }
-  }
+  },
+  "description": "Run `npm i` to install the dependencies.",
+  "main": "tailwind.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhefersonlv/inovedecor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhefersonlv/inovedecor/issues"
+  },
+  "homepage": "https://github.com/jhefersonlv/inovedecor#readme"
 }

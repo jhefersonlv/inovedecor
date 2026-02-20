@@ -1,36 +1,55 @@
 // Portfolio Data
-const portfolioProjects = [
-  {
+
+
+const portfolioProjects = [];
+
+for (let i = 1; i <= 6; i++){
+  portfolioProjects.push({
     title: 'Bancada de Cozinha Gourmet',
     category: 'Bancadas',
-    image: '../assets/img01.jpg',
-  },
-  {
-    title: 'Bancada em lamina ultracompacta',
-    category: 'Bancada',
-    image: '../assets/img02.jpg',
-  },
-  {
-    title: 'Lavatório Esculpido',
-    category: 'Lavatórios',
-    image: '../assets/img03.jpg',
-  },
-  {
-    title: 'Bancada de Banheiro Luxo',
-    category: 'Bancadas',
-    image: '../assets/img04.jpg',
-  },
-  {
-    title: 'Nicho de banheiro',
-    category: 'Nicho',
-    image: '../assets/img05.jpg',
-  },
-  {
-    title: 'Kit de nicho vertical com espelho',
-    category: 'Nicho',
-    image: '../assets/img06.jpg',
-  },
-];
+    image: `../assets/bancada0${i}.jpeg`
+
+  })
+}
+
+for (let i = 1; i <= 6; i++){
+  portfolioProjects.push({
+    title: 'Lavatórios',
+    category: 'Lavatorios',
+    image: `../assets/lavatorio0${i}.jpeg`
+
+  })
+}
+
+for (let i = 1; i <= 6; i++){
+  portfolioProjects.push({
+    title: 'Gabinetes de banheiro em porcelanato',
+    category: 'Gabinetes',
+    image: `../assets/gabinete0${i}.jpeg`
+
+  })
+}
+
+for (let i = 1; i <= 6; i++){
+  portfolioProjects.push({
+    title: 'Bancada para cuba de sobrepor',
+    category: 'Bancadas-para-cuba',
+    image: `../assets/bancada-cuba-sobrepor0${i}.jpeg`
+
+  })
+}
+
+
+for (let i = 1; i <= 6; i++){
+  portfolioProjects.push({
+    title: 'Instalação de porcelanato e revestimentos',
+    category: 'Revestimentos',
+    image: `../assets/revestimento0${i}.jpeg`
+
+  })
+}
+
+const categories = ["Todos", ...new Set(portfolioProjects.map(p => p.category))];
 
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', function() {
@@ -51,6 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize portfolio
   initPortfolio();
+
+  //Initialize o filtro
+  renderPhotos(portfolioProjects)
   
   // Initialize contact form
   initContactForm();
@@ -145,62 +167,133 @@ function updateMobileMenuIcon(isOpen) {
 
 // Initialize portfolio
 function initPortfolio() {
-  const portfolioGrid = document.getElementById('portfolio-grid');
-  
-  portfolioProjects.forEach((project, index) => {
-    const projectDiv = document.createElement('div');
-    projectDiv.className = 'group relative overflow-hidden rounded-2xl cursor-pointer animate-on-scroll';
-    projectDiv.onclick = () => openPortfolioModal(index);
-    
-    projectDiv.innerHTML = `
-      <!-- Imagem -->
-      <div class="aspect-square overflow-hidden bg-gray-800">
-        <img
-          src="${project.image}"
-          alt="${project.title}"
-          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-      </div>
 
-      <!-- Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div class="absolute bottom-0 left-0 right-0 p-6">
-          <div class="flex items-start justify-between">
-            <div>
-              <p class="text-amber-400 text-sm font-semibold mb-1">
-                ${project.category}
-              </p>
-              <h3 class="text-white text-xl font-bold">
-                ${project.title}
-              </h3>
+  const filterContainer = document.getElementById('filters');
+  
+  filterContainer.innerHTML = "";
+
+  categories.forEach( category => {
+    const button = document.createElement("button");
+
+    button.textContent = category
+    button.className = baseClasses;
+
+    button.addEventListener("click", () => {
+      setActiveButton(button);
+      filterPhotos(category);
+    });
+    
+    filterContainer.appendChild(button);
+    
+
+  });
+
+}
+
+const baseClasses = `
+  bg-gradient-to-br from-gray-900 to-gray-800
+  px-6 py-3
+  text-white
+  rounded-2xl
+  border-2 border-white/20
+  transition-all duration-300 ease-out
+  hover:shadow-2xl
+  hover:border-[#d7c87c]
+  hover:-translate-y-1
+`;
+
+const activeClasses = `
+  bg-gradient-to-br from-[#d7c87c] to-[#b6a85f]
+  text-black
+  shadow-2xl
+  scale-105
+  border-[#d7c87c]
+`;
+
+
+
+function setActiveButton(activeBtn) {
+  const buttons = document.querySelectorAll("#filters button");
+
+  buttons.forEach(btn => {
+    btn.className = baseClasses;
+  });
+
+  activeBtn.className = `${baseClasses} ${activeClasses}`;
+}
+
+
+
+function filterPhotos(category) {
+
+  if (category === "Todos") {
+    renderPhotos(portfolioProjects);
+    return;
+  }
+
+  const filtered = portfolioProjects.filter(project => project.category === category);
+  renderPhotos(filtered);
+}
+
+function renderPhotos(array) {
+  const portfolioGrid = document.getElementById('portfolio-grid');
+
+  // 🔥 LIMPA antes de renderizar
+  portfolioGrid.innerHTML = "";
+
+  array.forEach((project, index) => {
+    portfolioGrid.innerHTML += `
+      <div 
+        class="group relative overflow-hidden rounded-2xl cursor-pointer animate-on-scroll"
+        onclick="openPortfolioModalById('${project.image}')"
+      >
+        <!-- Imagem -->
+        <div class="aspect-square overflow-hidden bg-gray-800">
+          <img
+            src="${project.image}"
+            alt="${project.title}"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-amber-400 text-sm font-semibold mb-1">
+                  ${project.category}
+                </p>
+                <h3 class="text-white text-xl font-bold">
+                  ${project.title}
+                </h3>
+              </div>
+              <i data-lucide="zoom-in" class="text-white flex-shrink-0 w-6 h-6"></i>
             </div>
-            <i data-lucide="zoom-in" class="text-white flex-shrink-0 w-6 h-6"></i>
           </div>
         </div>
       </div>
     `;
-    
-    portfolioGrid.appendChild(projectDiv);
   });
-  
-  // Recreate icons for the new elements
+
+  // 🔥 Atualiza ícones depois de renderizar
   lucide.createIcons();
 }
 
 // Open portfolio modal
-function openPortfolioModal(index) {
+function openPortfolioModalById(image) {
+  const project = portfolioProjects.find(p => p.image === image);
+
   const modal = document.getElementById('portfolio-modal');
   const modalImage = document.getElementById('modal-image');
   const modalTitle = document.getElementById('modal-title');
   const modalCategory = document.getElementById('modal-category');
-  
-  const project = portfolioProjects[index];
-  
+
   modalImage.src = project.image;
   modalImage.alt = project.title;
   modalTitle.textContent = project.title;
   modalCategory.textContent = project.category;
-  
+
   modal.classList.remove('hidden');
   modal.classList.add('flex');
 }
