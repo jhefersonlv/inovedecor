@@ -7,7 +7,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Bancada de Cozinha Gourmet',
     category: 'Bancadas',
-    image: `../assets/bancada0${i}.jpeg`
+    image: `./assets/bancada0${i}.jpeg`
 
   })
 }
@@ -16,7 +16,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Lavatórios',
     category: 'Lavatorios',
-    image: `../assets/lavatorio0${i}.jpeg`
+    image: `./assets/lavatorio0${i}.jpeg`
 
   })
 }
@@ -25,7 +25,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Gabinetes de banheiro em porcelanato',
     category: 'Gabinetes',
-    image: `../assets/gabinete0${i}.jpeg`
+    image: `./assets/gabinete0${i}.jpeg`
 
   })
 }
@@ -34,7 +34,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Bancada para cuba de sobrepor',
     category: 'Bancadas-para-cuba',
-    image: `../assets/bancada-cuba-sobrepor0${i}.jpeg`
+    image: `./assets/bancada-cuba-sobrepor0${i}.jpeg`
 
   })
 }
@@ -44,7 +44,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Instalação de porcelanato e revestimentos',
     category: 'Revestimentos',
-    image: `../assets/revestimento0${i}.jpeg`
+    image: `./assets/revestimento0${i}.jpeg`
 
   })
 }
