@@ -1,0 +1,77 @@
+/* --------------------------------------------------------------------------
+   6. SEÇÕES COMUNS
+   -------------------------------------------------------------------------- */
+.section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  padding-right: var(--container-padding-x);
+}
+
+.section-white {
+  background-color: var(--color-white);
+}
+
+.section-gray {
+  background-color: var(--color-gray-50);
+}
+
+.section-dark {
+  background-color: var(--color-gray-900);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: inherit;
+}
+
+.section-title .highlight {
+  color: var(--color-primary);
+}
+
+.section-title .highlight-alt {
+  color: var(--color-primary-dark);
+}
+
+.section-underline {
+  width: 5rem;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}
+
+.section-header .section-underline {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-desc {
+  font-size: 1.125rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--color-gray-600);
+  line-height: 1.6;
+}
+
+.section-dark .section-title {
+  color: var(--color-white);
+}
+
+.section-dark .section-desc {
+  color: var(--color-gray-300);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}

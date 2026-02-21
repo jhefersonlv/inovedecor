@@ -4,609 +4,509 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PorcelanatoPremium - Especialista em Porcelanato Esculpido</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/images/logo/logo-branco.png" type="image/png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="min-h-screen font-['Inter']">
-  
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between h-20">
-        <!-- Logo -->
-        <button onclick="scrollToSection('hero')" class="text-2xl font-bold text-white hover:text-[#d7c87c] transition-colors">
-          <img src="assets/logo-branco.png" alt="InoveDecor" class="h-8 w-auto">
+<body>
+
+  <!-- Navegação -->
+  <nav id="navbar" class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <button onclick="scrollToSection('hero')" class="nav-logo" aria-label="Ir para o início">
+          <img src="assets/images/logo/logo-branco.png" alt="InoveDecor">
         </button>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8">
-          <button onclick="scrollToSection('hero')" class="text-white hover:text-[#d7c87c] transition-colors font-medium">Início</button>
-          <button onclick="scrollToSection('about')" class="text-white hover:text-[#d7c87c] transition-colors font-medium">Sobre</button>
-          <button onclick="scrollToSection('services')" class="text-white hover:text-[#d7c87c] transition-colors font-medium">Serviços</button>
-          <button onclick="scrollToSection('portfolio')" class="text-white hover:text-[#d7c87c] transition-colors font-medium">Portfólio</button>
-          <button onclick="scrollToSection('differentials')" class="text-white hover:text-[#d7c87c] transition-colors font-medium">Diferenciais</button>
-          <button onclick="scrollToSection('testimonials')" class="text-white hover:text-[#d7c87c] transition-colors font-medium">Depoimentos</button>
-          <button onclick="scrollToSection('contact')" class="text-white hover:text-[#d7c87c] transition-colors font-medium">Contato</button>
+        <div class="nav-menu">
+          <button onclick="scrollToSection('hero')" class="nav-link">Início</button>
+          <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
+          <button onclick="scrollToSection('services')" class="nav-link">Serviços</button>
+          <button onclick="scrollToSection('portfolio')" class="nav-link">Portfólio</button>
+          <button onclick="scrollToSection('differentials')" class="nav-link">Diferenciais</button>
+          <button onclick="scrollToSection('testimonials')" class="nav-link">Depoimentos</button>
+          <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-white hover:text-[#d7c87c] transition-colors">
-          <i data-lucide="menu" class="w-7 h-7"></i>
+        <button id="mobile-menu-btn" class="nav-mobile-btn" aria-label="Abrir menu">
+          <i data-lucide="menu"></i>
         </button>
       </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-md pb-4">
-        <button onclick="scrollToSection('hero')" class="block w-full text-left px-4 py-3 text-white hover:text-[#d7c87c] hover:bg-white/5 transition-colors font-medium">Início</button>
-        <button onclick="scrollToSection('about')" class="block w-full text-left px-4 py-3 text-white hover:text-[#d7c87c] hover:bg-white/5 transition-colors font-medium">Sobre</button>
-        <button onclick="scrollToSection('services')" class="block w-full text-left px-4 py-3 text-white hover:text-[#d7c87c] hover:bg-white/5 transition-colors font-medium">Serviços</button>
-        <button onclick="scrollToSection('portfolio')" class="block w-full text-left px-4 py-3 text-white hover:text-[#d7c87c] hover:bg-white/5 transition-colors font-medium">Portfólio</button>
-        <button onclick="scrollToSection('differentials')" class="block w-full text-left px-4 py-3 text-white hover:text-[#d7c87c] hover:bg-white/5 transition-colors font-medium">Diferenciais</button>
-        <button onclick="scrollToSection('testimonials')" class="block w-full text-left px-4 py-3 text-white hover:text-[#d7c87c] hover:bg-white/5 transition-colors font-medium">Depoimentos</button>
-        <button onclick="scrollToSection('contact')" class="block w-full text-left px-4 py-3 text-white hover:text-[#d7c87c] hover:bg-white/5 transition-colors font-medium">Contato</button>
+      <div id="mobile-menu" class="nav-mobile">
+        <button onclick="scrollToSection('hero')" class="nav-link">Início</button>
+        <button onclick="scrollToSection('about')" class="nav-link">Sobre</button>
+        <button onclick="scrollToSection('services')" class="nav-link">Serviços</button>
+        <button onclick="scrollToSection('portfolio')" class="nav-link">Portfólio</button>
+        <button onclick="scrollToSection('differentials')" class="nav-link">Diferenciais</button>
+        <button onclick="scrollToSection('testimonials')" class="nav-link">Depoimentos</button>
+        <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
       </div>
     </div>
   </nav>
 
-  <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <!-- Background com gradiente elegante -->
-      <div class="absolute inset-2 bg-gradient-to-br from-gray-900 via-black to-gray-900">
-        <!-- Efeito de brilho -->
-        <div class="absolute inset-1 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_50%)]"></div>
-        <img class="w-full h-full object-cover" src="assets/bg.jpeg" alt="">
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-bg">
+        <div class="hero-bg-glow"></div>
+        <img src="assets/images/bg.jpeg" alt="">
       </div>
 
-      <!-- Padrão decorativo -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#d7c87c] rounded-full filter blur-[100px]"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full filter blur-[100px]"></div>
+      <div class="hero-blur">
+        <div class="hero-blur-circle"></div>
+        <div class="hero-blur-circle"></div>
       </div>
 
-      <!-- Conteúdo -->
-      <div class="relative z-10 container mx-auto px-4 text-center">
+      <div class="hero-content">
         <div class="animate-fade-in-up">
-
-            <img id="logo" src="assets/logo-branco.png" alt="">
-          
+          <img id="logo" src="assets/images/logo/logo-branco.png" alt="InoveDecor" class="hero-logo">
         </div>
 
-        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+        <p class="hero-subtitle animate-fade-in-up animation-delay-200">
           Especialista em porcelanato esculpido e lâmina ultracompacta.
           Bancadas, ilhas, lavatórios e revestimentos sob medida com acabamento impecável.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-400">
-          <button onclick="scrollToSection('contact')" class="group bg-[#d7c87c] text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#ddcf8b] transition-all duration-300 flex items-center gap-2 shadow-lg shadow-[#d7c87c]/50 hover:shadow-[#d7c87c]/70 hover:scale-105">
+        <div class="hero-buttons animate-fade-in-up animation-delay-400">
+          <button onclick="scrollToSection('contact')" class="btn-primary">
             Solicitar Orçamento
-            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            <i data-lucide="arrow-right"></i>
           </button>
-
-          <button onclick="openWhatsApp()" class="group bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-2 border border-white/20 hover:border-white/40 hover:scale-105">
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          <button onclick="openWhatsApp()" class="btn-secondary">
+            <i data-lucide="message-circle"></i>
             Falar no WhatsApp
           </button>
         </div>
-
-        <!-- Indicador de scroll -->
-        
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- Conteúdo -->
-          <div class="animate-on-scroll">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Excelência em <span class="text-[#d7c87c]">Porcelanato</span>
+    <!-- Sobre -->
+    <section id="about" class="section section-white">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content animate-on-scroll">
+            <h2 class="section-title">
+              Excelência em <span class="highlight">Porcelanato</span>
             </h2>
-            <div class="w-20 h-1 bg-[#d7c87c] mb-6"></div>
-            
-            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-              Com mais de 15 anos de experiência no mercado, somos referência em confecção e 
-              instalação de porcelanato esculpido e lâmina ultracompacta. Nossa especialidade 
+            <div class="section-underline"></div>
+
+            <p class="about-text">
+              Com mais de 15 anos de experiência no mercado, somos referência em confecção e
+              instalação de porcelanato esculpido e lâmina ultracompacta. Nossa especialidade
               está em transformar ambientes através de peças únicas e personalizadas.
             </p>
-
-            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-              Cada projeto é executado com precisão milimétrica, utilizando as melhores 
-              técnicas e materiais do mercado. Do planejamento à instalação, garantimos 
+            <p class="about-text">
+              Cada projeto é executado com precisão milimétrica, utilizando as melhores
+              técnicas e materiais do mercado. Do planejamento à instalação, garantimos
               acabamento premium e durabilidade excepcional.
             </p>
 
-            <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="text-[#d7c87c] flex-shrink-0 mt-1 w-6 h-6"></i>
-                <p class="text-gray-700">
+            <div class="about-list">
+              <div class="about-list-item">
+                <i data-lucide="check-circle"></i>
+                <p class="about-text" style="margin-bottom: 0;">
                   <strong>Especialização técnica:</strong> Domínio completo em corte, escultura e instalação de porcelanato
                 </p>
               </div>
-              <div class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="text-[#d7c87c] flex-shrink-0 mt-1 w-6 h-6"></i>
-                <p class="text-gray-700">
+              <div class="about-list-item">
+                <i data-lucide="check-circle"></i>
+                <p class="about-text" style="margin-bottom: 0;">
                   <strong>Materiais premium:</strong> Trabalhamos apenas com marcas reconhecidas e certificadas
                 </p>
               </div>
-              <div class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="text-[#d7c87c] flex-shrink-0 mt-1 w-6 h-6"></i>
-                <p class="text-gray-700">
+              <div class="about-list-item">
+                <i data-lucide="check-circle"></i>
+                <p class="about-text" style="margin-bottom: 0;">
                   <strong>Atendimento personalizado:</strong> Cada projeto recebe atenção exclusiva do início ao fim
                 </p>
               </div>
-            </div> 
+            </div>
           </div>
 
-          <!-- Stats Grid -->
-          <div class="grid grid-cols-2 gap-6 animate-on-scroll">
-            <div class="max-h-25 col-span-2 rounded-2xl text-white text-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="assets/pp.png"
-                alt="Foto Gabriel"
-                class="rounded-2xl w-full h-full object-fit group-hover:scale-105 transition-transform duration-500"/>
+          <div class="about-stats animate-on-scroll">
+            <div class="stat-card">
+              <img src="assets/images/pp.png" alt="Foto Gabriel">
             </div>
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl text-white text-center hover:scale-105 transition-transform duration-300">
-              <i data-lucide="users" class="mx-auto mb-4 text-[#d7c87c] w-10 h-10"></i>
-              <div class="text-4xl font-bold text-[#d7c87c] mb-2">500+</div>
-              <div class="text-gray-300">Clientes Satisfeitos</div>
+            <div class="stat-card">
+              <i data-lucide="users" class="stat-icon"></i>
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Clientes Satisfeitos</div>
             </div>
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl text-white text-center hover:scale-105 transition-transform duration-300">
-              <i data-lucide="award" class="mx-auto mb-4 text-[#d7c87c] w-10 h-10"></i>
-              <div class="text-4xl font-bold text-[#d7c87c] mb-2">15+</div>
-              <div class="text-gray-300">Anos de Experiência</div>
+            <div class="stat-card">
+              <i data-lucide="award" class="stat-icon"></i>
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Anos de Experiência</div>
             </div>
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl text-white text-center hover:scale-105 transition-transform duration-300">
-              <i data-lucide="check-circle" class="mx-auto mb-4 text-[#d7c87c] w-10 h-10"></i>
-              <div class="text-4xl font-bold text-[#d7c87c] mb-2">1000+</div>
-              <div class="text-gray-300">Projetos Concluídos</div>
+            <div class="stat-card">
+              <i data-lucide="check-circle" class="stat-icon"></i>
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Projetos Concluídos</div>
             </div>
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl text-white text-center hover:scale-105 transition-transform duration-300">
-              <i data-lucide="trending-up" class="mx-auto mb-4 text-[#d7c87c] w-10 h-10"></i>
-              <div class="text-4xl font-bold text-[#d7c87c] mb-2">98%</div>
-              <div class="text-gray-300">Taxa de Satisfação</div>
+            <div class="stat-card">
+              <i data-lucide="trending-up" class="stat-icon"></i>
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Taxa de Satisfação</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <!-- Header -->
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Nossos <span class="text-[#d7c87c]">Serviços</span>
+    <!-- Serviços -->
+    <section id="services" class="section section-gray">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">
+            Nossos <span class="highlight">Serviços</span>
           </h2>
-          <div class="w-20 h-1 bg-[#d7c87c] mx-auto mb-6"></div>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          <div class="section-underline"></div>
+          <p class="section-desc">
             Soluções completas em porcelanato esculpido e lâmina ultracompacta para transformar seu ambiente
           </p>
         </div>
 
-        <!-- Services Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="grid-3x3" class="text-white w-8 h-8"></i>
+        <div class="services-grid">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon-wrap">
+              <i data-lucide="grid-3x3"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#ddc758] transition-colors">
-              Bancadas Sob Medida
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              Bancadas de cozinha e banheiro em porcelanato esculpido com design exclusivo e acabamento premium.
-            </p>
+            <h3>Bancadas Sob Medida</h3>
+            <p>Bancadas de cozinha e banheiro em porcelanato esculpido com design exclusivo e acabamento premium.</p>
           </div>
-
-          <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="home" class="text-white w-8 h-8"></i>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon-wrap">
+              <i data-lucide="home"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#ddc758] transition-colors">
-              Ilhas Gourmet
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              Ilhas centrais personalizadas que combinam funcionalidade e sofisticação para seu espaço gourmet.
-            </p>
+            <h3>Ilhas Gourmet</h3>
+            <p>Ilhas centrais personalizadas que combinam funcionalidade e sofisticação para seu espaço gourmet.</p>
           </div>
-
-          <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="droplet" class="text-white w-8 h-8"></i>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon-wrap">
+              <i data-lucide="droplet"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#ddc758] transition-colors">
-              Lavatórios Personalizados
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              Lavatórios esculpidos em lâmina ultracompacta com design único e resistência excepcional.
-            </p>
+            <h3>Lavatórios Personalizados</h3>
+            <p>Lavatórios esculpidos em lâmina ultracompacta com design único e resistência excepcional.</p>
           </div>
-
-          <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="box" class="text-white w-8 h-8"></i>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon-wrap">
+              <i data-lucide="box"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#ddc758] transition-colors">
-              Pias Esculpidas
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              Pias de cozinha em porcelanato de alta qualidade com cortes e acabamentos impecáveis.
-            </p>
+            <h3>Pias Esculpidas</h3>
+            <p>Pias de cozinha em porcelanato de alta qualidade com cortes e acabamentos impecáveis.</p>
           </div>
-
-          <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="layers" class="text-white w-8 h-8"></i>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon-wrap">
+              <i data-lucide="layers"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#ddc758] transition-colors">
-              Lâmina Ultracompacta
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              Projetos especiais utilizando tecnologia de ponta em materiais ultracompactos e resistentes.
-            </p>
+            <h3>Lâmina Ultracompacta</h3>
+            <p>Projetos especiais utilizando tecnologia de ponta em materiais ultracompactos e resistentes.</p>
           </div>
-
-          <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <i data-lucide="sparkles" class="text-white w-8 h-8"></i>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon-wrap">
+              <i data-lucide="sparkles"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#ddc758] transition-colors">
-              Revestimentos Premium
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-              Revestimentos personalizados que transformam ambientes com elegância e durabilidade.
-            </p>
+            <h3>Revestimentos Premium</h3>
+            <p>Revestimentos personalizados que transformam ambientes com elegância e durabilidade.</p>
           </div>
         </div>
 
-        <!-- CTA -->
-        <div class="text-center mt-12 animate-on-scroll">
-          <button onclick="scrollToSection('contact')" class="bg-gradient-to-r from-[#d7c87c] to-[#ddc758] text-black px-8 py-4 rounded-lg font-bold text-lg hover:from-[#ddc758] hover:to-[#ddc23d] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+        <div class="section-cta animate-on-scroll">
+          <button onclick="scrollToSection('contact')" class="btn-gradient">
             Solicite Seu Orçamento Personalizado
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-900">
-      <div class="container mx-auto px-4">
-        <!-- Header -->
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-            Nosso <span class="text-[#d7c87c]">Portfólio</span>
+    <!-- Portfólio -->
+    <section id="portfolio" class="section section-dark">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">
+            Nosso <span class="highlight">Portfólio</span>
           </h2>
-          <div class="w-20 h-1 bg-[#d7c87c] mx-auto mb-6"></div>
-          <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+          <div class="section-underline"></div>
+          <p class="section-desc">
             Confira alguns dos nossos projetos mais recentes e inspire-se para seu próximo ambiente
           </p>
         </div>
 
-        <!-- Portfolio Grid -->
-        <div id="filters" class="flex justify-center gap-3 mb-6"></div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
-          <!-- Portfolio items will be generated by JS -->
-        </div>
+        <div id="filters" class="portfolio-filters"></div>
+        <div class="portfolio-grid" id="portfolio-grid"></div>
+        
+        <button id="btn-ver-mais" onclick="extendImages()" class="btn-ver-mais">
+            Ver mais...
+          </button>
       </div>
     </section>
 
-    <!-- Modal de imagem ampliada -->
-    <div id="portfolio-modal" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4" onclick="closePortfolioModal()">
-      <div class="max-w-96 w-full" onclick="event.stopPropagation()">
-        <img id="modal-image" src="" alt="" class="w-full h-auto rounded-2xl">
-        <div class="text-center mt-4">
-          <h3 id="modal-title" class="text-white text-2xl font-bold mb-2"></h3>
-          <p id="modal-category" class="text-[#d7c87c]"></p>
+    <!-- Modal portfólio -->
+    <div id="portfolio-modal" class="portfolio-modal" onclick="closePortfolioModal()">
+      <div class="portfolio-modal-inner" onclick="event.stopPropagation()">
+        <img id="modal-image" src="" alt="">
+        <div class="portfolio-modal-caption">
+          <h3 id="modal-title"></h3>
+          <p id="modal-category"></p>
         </div>
       </div>
     </div>
 
-    <!-- Differentials Section -->
-    <section id="differentials" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <!-- Header -->
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Nossos <span class="text-[#ddc758]">Diferenciais</span>
+    <!-- Diferenciais -->
+    <section id="differentials" class="section section-white">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">
+            Nossos <span class="highlight-alt">Diferenciais</span>
           </h2>
-          <div class="w-20 h-1 bg-[#d7c87c] mx-auto mb-6"></div>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          <div class="section-underline"></div>
+          <p class="section-desc">
             O que nos torna referência no mercado de porcelanato premium
           </p>
         </div>
 
-        <!-- Differentials Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="relative group animate-on-scroll">
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#d7c87c]">
-              <div class="relative mb-6">
-                <div class="absolute inset-0 bg-[#d7c87c]/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div class="relative bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <i data-lucide="award" class="text-black w-8 h-8"></i>
+        <div class="differentials-grid">
+          <div class="animate-on-scroll diff-card-wrap">
+            <div class="diff-card">
+              <div class="diff-icon-wrap">
+                <div class="diff-icon-glow"></div>
+                <div class="diff-icon">
+                  <i data-lucide="award"></i>
                 </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#d7c87c] transition-colors">
-                Acabamento Premium
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Cada detalhe é executado com perfeição para garantir um resultado impecável e sofisticado.
-              </p>
+              <h3>Acabamento Premium</h3>
+              <p>Cada detalhe é executado com perfeição para garantir um resultado impecável e sofisticado.</p>
             </div>
           </div>
-
-          <div class="relative group animate-on-scroll">
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#d7c87c]">
-              <div class="relative mb-6">
-                <div class="absolute inset-0 bg-[#d7c87c]/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div class="relative bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <i data-lucide="shield" class="text-black w-8 h-8"></i>
+          <div class="animate-on-scroll diff-card-wrap">
+            <div class="diff-card">
+              <div class="diff-icon-wrap">
+                <div class="diff-icon-glow"></div>
+                <div class="diff-icon">
+                  <i data-lucide="shield"></i>
                 </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#d7c87c] transition-colors">
-                Alta Durabilidade
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Materiais de primeira linha que garantem resistência e beleza por muitos anos.
-              </p>
+              <h3>Alta Durabilidade</h3>
+              <p>Materiais de primeira linha que garantem resistência e beleza por muitos anos.</p>
             </div>
           </div>
-
-          <div class="relative group animate-on-scroll">
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#d7c87c]">
-              <div class="relative mb-6">
-                <div class="absolute inset-0 bg-[#d7c87c]/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div class="relative bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <i data-lucide="target" class="text-black w-8 h-8"></i>
+          <div class="animate-on-scroll diff-card-wrap">
+            <div class="diff-card">
+              <div class="diff-icon-wrap">
+                <div class="diff-icon-glow"></div>
+                <div class="diff-icon">
+                  <i data-lucide="target"></i>
                 </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#d7c87c] transition-colors">
-                Precisão Milimétrica
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Medições e cortes precisos para um encaixe perfeito em qualquer projeto.
-              </p>
+              <h3>Precisão Milimétrica</h3>
+              <p>Medições e cortes precisos para um encaixe perfeito em qualquer projeto.</p>
             </div>
           </div>
-
-          <div class="relative group animate-on-scroll">
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#d7c87c]">
-              <div class="relative mb-6">
-                <div class="absolute inset-0 bg-[#d7c87c]/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div class="relative bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <i data-lucide="heart" class="text-black w-8 h-8"></i>
+          <div class="animate-on-scroll diff-card-wrap">
+            <div class="diff-card">
+              <div class="diff-icon-wrap">
+                <div class="diff-icon-glow"></div>
+                <div class="diff-icon">
+                  <i data-lucide="heart"></i>
                 </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#d7c87c] transition-colors">
-                Atendimento Personalizado
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Cada cliente recebe atenção exclusiva do planejamento à execução final.
-              </p>
+              <h3>Atendimento Personalizado</h3>
+              <p>Cada cliente recebe atenção exclusiva do planejamento à execução final.</p>
             </div>
           </div>
-
-          <div class="relative group animate-on-scroll">
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#d7c87c]">
-              <div class="relative mb-6">
-                <div class="absolute inset-0 bg-[#d7c87c]/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div class="relative bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <i data-lucide="clock" class="text-black w-8 h-8"></i>
+          <div class="animate-on-scroll diff-card-wrap">
+            <div class="diff-card">
+              <div class="diff-icon-wrap">
+                <div class="diff-icon-glow"></div>
+                <div class="diff-icon">
+                  <i data-lucide="clock"></i>
                 </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#d7c87c] transition-colors">
-                Pontualidade
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Cumprimos rigorosamente os prazos acordados sem comprometer a qualidade.
-              </p>
+              <h3>Pontualidade</h3>
+              <p>Cumprimos rigorosamente os prazos acordados sem comprometer a qualidade.</p>
             </div>
           </div>
-
-          <div class="relative group animate-on-scroll">
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl h-full hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-[#d7c87c]">
-              <div class="relative mb-6">
-                <div class="absolute inset-0 bg-[#d7c87c]/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div class="relative bg-gradient-to-br from-[#d7c87c] to-[#ddc758] w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <i data-lucide="wrench" class="text-black w-8 h-8"></i>
+          <div class="animate-on-scroll diff-card-wrap">
+            <div class="diff-card">
+              <div class="diff-icon-wrap">
+                <div class="diff-icon-glow"></div>
+                <div class="diff-icon">
+                  <i data-lucide="wrench"></i>
                 </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#d7c87c] transition-colors">
-                Garantia de Qualidade
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Garantia em todos os serviços executados com suporte pós-instalação.
-              </p>
+              <h3>Garantia de Qualidade</h3>
+              <p>Garantia em todos os serviços executados com suporte pós-instalação.</p>
             </div>
           </div>
         </div>
 
-        <!-- Call to Action -->
-        <div class="mt-16 text-center animate-on-scroll">
-          <div class="bg-gradient-to-r from-[#d7c87c] to-[#ddc758] rounded-2xl p-12 md:p-16">
-            <h3 class="text-3xl md:text-4xl font-bold text-black mb-4">
-              Pronto Para Transformar Seu Ambiente?
-            </h3>
-            <p class="text-black/80 text-lg mb-8 max-w-2xl mx-auto">
-              Entre em contato e descubra como podemos criar a solução perfeita para seu projeto
-            </p>
-            <button onclick="scrollToSection('contact')" class="bg-black text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-              Solicitar Orçamento Gratuito
-            </button>
+        <div class="cta-block animate-on-scroll">
+          <div class="cta-block-inner">
+            <h3>Pronto Para Transformar Seu Ambiente?</h3>
+            <p>Encontre a pedra perfeita para seu projeto</p>
+            <div class="about-stats animate-on-scroll">
+            <div class="stat-card">
+              <img src="assets/images/pp.png" alt="Foto Gabriel">
+            </div>
+            <div class="stat-card">
+              <i data-lucide="users" class="stat-icon"></i>
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Clientes Satisfeitos</div>
+            </div>
+            <div class="stat-card">
+              <i data-lucide="award" class="stat-icon"></i>
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Anos de Experiência</div>
+            </div>
+            <div class="stat-card">
+              <i data-lucide="check-circle" class="stat-icon"></i>
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Projetos Concluídos</div>
+            </div>
+            <div class="stat-card">
+              <i data-lucide="trending-up" class="stat-icon"></i>
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Taxa de Satisfação</div>
+            </div>
+          </div>
+            <button onclick="scrollToSection('contact')" class="btn-dark">Solicitar Orçamento Gratuito</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <!-- Header -->
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            O Que Dizem Nossos <span class="text-[#ddc758]">Clientes</span>
+    <!-- Depoimentos -->
+    <section id="testimonials" class="section section-gray">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">
+            O Que Dizem Nossos <span class="highlight-alt">Clientes</span>
           </h2>
-          <div class="w-20 h-1 bg-[#d7c87c] mx-auto mb-6"></div>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          <div class="section-underline"></div>
+          <p class="section-desc">
             A satisfação dos nossos clientes é o nosso maior orgulho
           </p>
         </div>
 
-        <!-- Testimonials Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="mb-4">
-              <i data-lucide="quote" class="text-[#d7c87c] w-10 h-10"></i>
+        <div class="testimonials-grid">
+          <div class="testimonial-card animate-on-scroll">
+            <i data-lucide="quote" class="testimonial-quote"></i>
+            <div class="testimonial-stars">
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
             </div>
-            <div class="flex gap-1 mb-4">
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-            </div>
-            <p class="text-gray-700 leading-relaxed mb-6 italic">
+            <p class="testimonial-text">
               "Trabalho impecável! A bancada da minha cozinha ficou perfeita, com acabamento de altíssima qualidade. Superou todas as minhas expectativas. Recomendo de olhos fechados!"
             </p>
-            <div class="mb-4">
-              <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-semibold">
-                Bancada de Cozinha
-              </span>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <p class="font-bold text-gray-900">Maria Oliveira</p>
-              <p class="text-gray-500 text-sm">São Paulo - SP</p>
+            <span class="testimonial-badge">Bancada de Cozinha</span>
+            <div class="testimonial-author">
+              <strong>Maria Oliveira</strong>
+              <span>São Paulo - SP</span>
             </div>
           </div>
-
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="mb-4">
-              <i data-lucide="quote" class="text-[#d7c87c] w-10 h-10"></i>
+          <div class="testimonial-card animate-on-scroll">
+            <i data-lucide="quote" class="testimonial-quote"></i>
+            <div class="testimonial-stars">
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
             </div>
-            <div class="flex gap-1 mb-4">
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-            </div>
-            <p class="text-gray-700 leading-relaxed mb-6 italic">
+            <p class="testimonial-text">
               "Profissional extremamente competente e pontual. A ilha gourmet que ele instalou transformou completamente nosso espaço. Atenção aos detalhes impressionante!"
             </p>
-            <div class="mb-4">
-              <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-semibold">
-                Ilha Gourmet
-              </span>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <p class="font-bold text-gray-900">Roberto Santos</p>
-              <p class="text-gray-500 text-sm">Rio de Janeiro - RJ</p>
+            <span class="testimonial-badge">Ilha Gourmet</span>
+            <div class="testimonial-author">
+              <strong>Roberto Santos</strong>
+              <span>Rio de Janeiro - RJ</span>
             </div>
           </div>
-
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#d7c87c] animate-on-scroll">
-            <div class="mb-4">
-              <i data-lucide="quote" class="text-[#d7c87c] w-10 h-10"></i>
+          <div class="testimonial-card animate-on-scroll">
+            <i data-lucide="quote" class="testimonial-quote"></i>
+            <div class="testimonial-stars">
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
             </div>
-            <div class="flex gap-1 mb-4">
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-              <i data-lucide="star" class="text-[#d7c87c] fill-[#d7c87c] w-5 h-5"></i>
-            </div>
-            <p class="text-gray-700 leading-relaxed mb-6 italic">
+            <p class="testimonial-text">
               "Excelente atendimento desde o primeiro contato. Os lavatórios em porcelanato esculpido ficaram espetaculares. Qualidade premium com certeza!"
             </p>
-            <div class="mb-4">
-              <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-semibold">
-                Lavatórios Personalizados
-              </span>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <p class="font-bold text-gray-900">Carla Mendes</p>
-              <p class="text-gray-500 text-sm">Belo Horizonte - MG</p>
+            <span class="testimonial-badge">Lavatórios Personalizados</span>
+            <div class="testimonial-author">
+              <strong>Carla Mendes</strong>
+              <span>Belo Horizonte - MG</span>
             </div>
           </div>
         </div>
 
-        <!-- Trust Badge -->
-        <div class="mt-16 text-center animate-on-scroll">
-          <div class="inline-flex items-center gap-2 bg-gradient-to-r from-[#d7c87c] to-[#ddc758] px-6 py-3 rounded-full">
-            <i data-lucide="star" class="text-black fill-black w-6 h-6"></i>
-            <span class="text-black font-bold text-lg">
-              4.9/5.0 - Avaliação média dos clientes
-            </span>
+        <div class="trust-badge animate-on-scroll">
+          <div class="trust-badge-inner">
+            <i data-lucide="star"></i>
+            <span>4.9/5.0 - Avaliação média dos clientes</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-20 bg-gray-900">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <!-- Header -->
-          <div class="text-center mb-12 animate-on-scroll">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-              Solicite Seu <span class="text-[#d7c87c]">Orçamento</span>
+    <!-- Contato -->
+    <section id="contact" class="section section-dark">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">
+              Solicite Seu <span class="highlight">Orçamento</span>
             </h2>
-            <div class="w-20 h-1 bg-[#d7c87c] mx-auto mb-6"></div>
-            <p class="text-gray-300 text-lg">
+            <div class="section-underline"></div>
+            <p class="section-desc" style="margin-bottom: 0;">
               Preencha o formulário abaixo e receba um orçamento personalizado sem compromisso
             </p>
           </div>
 
-          <!-- Form -->
-          <form id="contact-form" class="bg-white rounded-2xl p-8 md:p-12 shadow-2xl animate-on-scroll">
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-              <!-- Nome -->
-              <div>
-                <label class="flex items-center gap-2 text-gray-700 font-semibold mb-2">
-                  <i data-lucide="user" class="text-[#ddc758] w-5 h-5"></i>
+          <form id="contact-form" class="contact-form animate-on-scroll">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">
+                  <i data-lucide="user"></i>
                   Nome Completo *
                 </label>
-                <input type="text" name="name" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#d7c87c] focus:outline-none transition-colors" placeholder="Seu nome">
+                <input type="text" name="name" required class="form-input" placeholder="Seu nome">
               </div>
-
-              <!-- Telefone -->
-              <div>
-                <label class="flex items-center gap-2 text-gray-700 font-semibold mb-2">
-                  <i data-lucide="phone" class="text-[#ddc758] w-5 h-5"></i>
+              <div class="form-group">
+                <label class="form-label">
+                  <i data-lucide="phone"></i>
                   Telefone/WhatsApp *
                 </label>
-                <input type="tel" name="phone" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#d7c87c] focus:outline-none transition-colors" placeholder="(00) 00000-0000">
+                <input type="tel" name="phone" required class="form-input" placeholder="(00) 00000-0000">
               </div>
             </div>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-              <!-- Cidade -->
-              <div>
-                <label class="flex items-center gap-2 text-gray-700 font-semibold mb-2">
-                  <i data-lucide="map-pin" class="text-[#ddc758] w-5 h-5"></i>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">
+                  <i data-lucide="map-pin"></i>
                   Cidade *
                 </label>
-                <input type="text" name="city" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#d7c87c] focus:outline-none transition-colors" placeholder="Sua cidade">
+                <input type="text" name="city" required class="form-input" placeholder="Sua cidade">
               </div>
-
-              <!-- Tipo de Projeto -->
-              <div>
-                <label class="flex items-center gap-2 text-gray-700 font-semibold mb-2">
-                  <i data-lucide="briefcase" class="text-[#ddc758] w-5 h-5"></i>
+              <div class="form-group">
+                <label class="form-label">
+                  <i data-lucide="briefcase"></i>
                   Tipo de Projeto *
                 </label>
-                <select name="projectType" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#d7c87c] focus:outline-none transition-colors bg-white">
+                <select name="projectType" required class="form-select">
                   <option value="">Selecione...</option>
                   <option value="Bancada de Cozinha">Bancada de Cozinha</option>
                   <option value="Ilha Gourmet">Ilha Gourmet</option>
@@ -617,25 +517,18 @@
                 </select>
               </div>
             </div>
-
-            <!-- Descrição -->
-            <div class="mb-6">
-              <label class="flex items-center gap-2 text-gray-700 font-semibold mb-2">
-                <i data-lucide="message-square" class="text-[#ddc758] w-5 h-5"></i>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label">
+                <i data-lucide="message-square"></i>
                 Descrição do Projeto *
               </label>
-              <textarea name="description" required rows="5" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#d7c87c] focus:outline-none transition-colors resize-none" placeholder="Conte-nos mais sobre seu projeto: medidas aproximadas, estilo desejado, prazo, etc."></textarea>
+              <textarea name="description" required rows="5" class="form-textarea" placeholder="Conte-nos mais sobre seu projeto: medidas aproximadas, estilo desejado, prazo, etc."></textarea>
             </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="w-full bg-gradient-to-r from-[#d7c87c] to-[#ddc758] text-black font-bold py-4 rounded-lg hover:from-[#ddc758] hover:to-[#ddc23d] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105">
-              <i data-lucide="send" class="w-5 h-5"></i>
+            <button type="submit" class="form-submit">
+              <i data-lucide="send"></i>
               Enviar Solicitação de Orçamento
             </button>
-
-            <p class="text-gray-500 text-sm text-center mt-4">
-              * Campos obrigatórios. Seus dados estão seguros e serão usados apenas para contato.
-            </p>
+            <p class="form-note">* Campos obrigatórios. Seus dados estão seguros e serão usados apenas para contato.</p>
           </form>
         </div>
       </div>
@@ -643,110 +536,92 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-black text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-        <!-- Brand -->
-        <div class="animate-on-scroll">
-          <h3 class="text-2xl font-bold mb-4">
-            Inove<span class="text-[#d7c87c]">Decor</span>
-          </h3>
-          <p class="text-gray-400 leading-relaxed">
-            Especialista em porcelanato esculpido e lâmina ultracompacta. 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand animate-on-scroll">
+          <h3>Inove<span class="highlight">Decor</span></h3>
+          <p>
+            Especialista em porcelanato esculpido e lâmina ultracompacta.
             Transformando ambientes com qualidade e sofisticação.
           </p>
         </div>
-
-        <!-- Contato -->
-        <div class="animate-on-scroll">
-          <h4 class="text-lg font-bold mb-4 text-[#d7c87c]">Contato</h4>
-          <div class="space-y-3">
-            <a href="tel:+5511972883448" class="flex items-center gap-2 text-gray-400 hover:text-[#d7c87c] transition-colors">
-              <i data-lucide="phone" class="w-4 h-4"></i>
+        <div class="footer-col animate-on-scroll">
+          <h4>Contato</h4>
+          <div class="footer-space-y">
+            <a href="tel:+5511972883448">
+              <i data-lucide="phone"></i>
               (11) 97288-3448
             </a>
-            <a href="mailto:contato@porcelanatopremium.com" class="flex items-center gap-2 text-gray-400 hover:text-[#d7c87c] transition-colors">
-              <i data-lucide="mail" class="w-4 h-4"></i>
+            <a href="mailto:contato@porcelanatopremium.com">
+              <i data-lucide="mail"></i>
               contato@inovedecor.com.br
             </a>
-            <div class="flex items-start gap-2 text-gray-400">
-              <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0 mt-1"></i>
+            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+              <i data-lucide="map-pin" style="flex-shrink: 0; margin-top: 0.25rem;"></i>
               <span>São Paulo - SP<br>Atendemos toda a região</span>
             </div>
           </div>
         </div>
-
-        <!-- Horário -->
-        <div class="animate-on-scroll">
-          <h4 class="text-lg font-bold mb-4 text-[#d7c87c]">Horário de Atendimento</h4>
-          <div class="space-y-3 text-gray-400">
-            <div class="flex items-start gap-2">
-              <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-1"></i>
+        <div class="footer-col animate-on-scroll">
+          <h4>Horário de Atendimento</h4>
+          <div class="footer-space-y">
+            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+              <i data-lucide="clock" style="flex-shrink: 0; margin-top: 0.25rem;"></i>
               <div>
                 <p>Segunda a Sexta</p>
-                <p class="text-white font-semibold">8:00 - 18:00</p>
+                <p style="color: var(--color-white); font-weight: 600;">8:00 - 18:00</p>
               </div>
             </div>
-            <div class="flex items-start gap-2">
-              <i data-lucide="clock" class="w-4 h-4 flex-shrink-0 mt-1"></i>
+            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+              <i data-lucide="clock" style="flex-shrink: 0; margin-top: 0.25rem;"></i>
               <div>
                 <p>Sábado</p>
-                <p class="text-white font-semibold">8:00 - 12:00</p>
+                <p style="color: var(--color-white); font-weight: 600;">8:00 - 12:00</p>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Serviços -->
-        <div class="animate-on-scroll">
-          <h4 class="text-lg font-bold mb-4 text-[#d7c87c]">Serviços</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li class="hover:text-[#d7c87c] transition-colors cursor-pointer">Bancadas</li>
-            <li class="hover:text-[#d7c87c] transition-colors cursor-pointer">Ilhas Gourmet</li>
-            <li class="hover:text-[#d7c87c] transition-colors cursor-pointer">Lavatórios</li>
-            <li class="hover:text-[#d7c87c] transition-colors cursor-pointer">Pias</li>
-            <li class="hover:text-[#d7c87c] transition-colors cursor-pointer">Revestimentos</li>
+        <div class="footer-col animate-on-scroll">
+          <h4>Serviços</h4>
+          <ul>
+            <li>Bancadas</li>
+            <li>Ilhas Gourmet</li>
+            <li>Lavatórios</li>
+            <li>Pias</li>
+            <li>Revestimentos</li>
           </ul>
         </div>
       </div>
 
-      <!-- Divider -->
-      <div class="border-t border-gray-800 my-8"></div>
+      <div class="footer-divider"></div>
 
-      <!-- Copyright -->
-      <div class="text-center text-gray-400 animate-on-scroll">
+      <div class="footer-bottom animate-on-scroll">
         <p>
-          © <span id="current-year"></span> <span class="text-[#d7c87c] font-semibold">InoveDecor</span>. 
+          © <span id="current-year"></span> <span class="highlight">InoveDecor</span>.
           Todos os direitos reservados.
         </p>
-        <p class="mt-2 text-sm">
+        <p class="mt-2">
           Desenvolvido com excelência por <a href="https://www.instagram.com/wordvirtua/">WordVirtua</a> para oferecer a melhor experiência.
         </p>
       </div>
     </div>
   </footer>
 
-  <!-- WhatsApp Floating Button -->
-  <button id="whatsapp-btn" onclick="openWhatsApp()" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 group hover:scale-110">
-    <!-- Pulse Animation -->
-    <div class="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></div>
-    
-    <!-- Icon -->
-    <div class="relative">
-      <i data-lucide="message-circle" class="w-8 h-8"></i>
+  <!-- Botão WhatsApp -->
+  <button id="whatsapp-btn" onclick="openWhatsApp()" class="whatsapp-btn" aria-label="Falar no WhatsApp">
+    <div class="pulse"></div>
+    <div class="icon-wrap">
+      <i data-lucide="message-circle"></i>
     </div>
-
-    <!-- Tooltip -->
-    <div id="whatsapp-tooltip" class="hidden absolute right-full mr-4 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg whitespace-nowrap shadow-xl">
+    <div id="whatsapp-tooltip" class="whatsapp-tooltip">
       Fale conosco no WhatsApp
-      <div class="absolute right-0 top-1/2 transform translate-x-full -translate-y-1/2 border-8 border-transparent border-l-gray-900"></div>
     </div>
   </button>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  
-  <!-- Main JavaScript -->
-  <script src="js/main.js"></script>
+  <!-- JavaScript principal -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

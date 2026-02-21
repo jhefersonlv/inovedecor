@@ -1,0 +1,192 @@
+
+/* --------------------------------------------------------------------------
+   9. PORTFÓLIO
+   -------------------------------------------------------------------------- */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  
+  justify-content: flex-start;
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-filters {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Modal portfólio */
+.portfolio-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.portfolio-modal.is-open {
+  display: flex;
+}
+
+/* Itens do portfólio (gerados por JS) */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+}
+
+.portfolio-item-inner {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-color: var(--color-gray-800);
+}
+
+.portfolio-item-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover .portfolio-item-inner img {
+  transform: scale(1.1);
+}
+
+.portfolio-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-item-overlay {
+  opacity: 1;
+}
+
+.portfolio-item-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.portfolio-item-caption p {
+  color: #fbbf24;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.portfolio-item-caption h3 {
+  color: var(--color-white);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.portfolio-item-caption i {
+  color: var(--color-white);
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Botões do filtro do portfólio */
+.filter-btn {
+  background: linear-gradient(to bottom right, var(--color-gray-900), var(--color-gray-800));
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(to bottom right, var(--color-primary), #b6a85f);
+  color: var(--color-black);
+  box-shadow: var(--shadow-2xl);
+  transform: scale(1.05);
+  border-color: var(--color-primary);
+}
+
+.portfolio-modal-inner {
+  max-width: 24rem;
+  width: 100%;
+}
+
+.portfolio-modal-inner img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+}
+
+.portfolio-modal-caption {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.portfolio-modal-caption h3 {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-modal-caption p {
+  color: var(--color-primary);
+}
+
+.btn-ver-mais {
+  background: linear-gradient(to bottom right, var(--color-gray-900), var(--color-gray-800));
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: -2.5rem;
+  margin-inline: auto;
+  padding-inline: 5rem;
+}
+
+.btn-ver-mais:hover {
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}

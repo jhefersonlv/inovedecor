@@ -1,0 +1,104 @@
+/* --------------------------------------------------------------------------
+   7. SOBRE (ABOUT)
+   -------------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-content .section-underline {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.about-text {
+  color: var(--color-gray-700);
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+.about-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.about-list-item svg,
+.about-list-item i {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: linear-gradient(to bottom right, var(--color-gray-900), var(--color-gray-800));
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  color: var(--color-white);
+  transition: transform var(--transition-base);
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+.stat-card:first-child {
+  grid-column: 1 / -1;
+  max-height: 25rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.stat-card:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  transition: transform 0.5s ease;
+}
+
+.stat-card:first-child:hover img {
+  transform: scale(1.05);
+}
+
+.stat-icon {
+  margin: 0 auto 1rem;
+  color: var(--color-primary);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--color-gray-300);
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

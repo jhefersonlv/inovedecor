@@ -1,0 +1,89 @@
+/* 1. VARIÁVEIS */
+
+:root {
+  /* Cores principais */
+  --color-primary: #d7c87c;
+  --color-primary-hover: #ddcf8b;
+  --color-primary-dark: #ddc758;
+  --color-primary-darker: #ddc23d;
+
+  /* Escala de cinza */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Neutros */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* WhatsApp */
+  --color-whatsapp: #22c55e;
+  --color-whatsapp-hover: #16a34a;
+
+  /* Badge / destaque */
+  --color-amber-100: #fef3c7;
+  --color-amber-700: #b45309;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-padding: 1rem;
+  --container-padding-x: 1.9rem;
+  --section-padding-y: 5rem;
+  --nav-height: 5rem;
+
+  /* Bordas e sombras */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.5rem;
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-primary: 0 10px 15px -3px rgba(215, 200, 124, 0.5);
+
+  /* Transições */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* 2. BASE */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,78 @@
+
+
+/* --------------------------------------------------------------------------
+   14. BOTÃO WHATSAPP
+   -------------------------------------------------------------------------- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  background-color: var(--color-whatsapp);
+  color: var(--color-white);
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: var(--shadow-2xl);
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: scale(1.1);
+}
+
+.whatsapp-btn .pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: var(--color-whatsapp);
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.whatsapp-btn .icon-wrap {
+  position: relative;
+}
+
+.whatsapp-btn svg,
+.whatsapp-btn i {
+  width: 2rem;
+  height: 2rem;
+}
+
+.whatsapp-tooltip {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+  right: 100%;
+  margin-right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-gray-900);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  box-shadow: var(--shadow-xl);
+}
+
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(100%, -50%);
+  border: 8px solid transparent;
+  border-left-color: var(--color-gray-900);
+}
+
+.whatsapp-btn:hover .whatsapp-tooltip {
+  display: block;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

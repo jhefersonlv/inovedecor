@@ -7,7 +7,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Bancada de Cozinha Gourmet',
     category: 'Bancadas',
-    image: `./assets/bancada0${i}.jpeg`
+    image: `./assets/images/portfolio/bancada0${i}.jpeg`
 
   })
 }
@@ -16,7 +16,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Lavatórios',
     category: 'Lavatorios',
-    image: `./assets/lavatorio0${i}.jpeg`
+    image: `./assets/images/portfolio/lavatorio0${i}.jpeg`
 
   })
 }
@@ -25,7 +25,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Gabinetes de banheiro em porcelanato',
     category: 'Gabinetes',
-    image: `./assets/gabinete0${i}.jpeg`
+    image: `./assets/images/portfolio/gabinete0${i}.jpeg`
 
   })
 }
@@ -34,7 +34,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Bancada para cuba de sobrepor',
     category: 'Bancadas-para-cuba',
-    image: `./assets/bancada-cuba-sobrepor0${i}.jpeg`
+    image: `./assets/images/portfolio/bancada-cuba-sobrepor0${i}.jpeg`
 
   })
 }
@@ -44,7 +44,7 @@ for (let i = 1; i <= 6; i++){
   portfolioProjects.push({
     title: 'Instalação de porcelanato e revestimentos',
     category: 'Revestimentos',
-    image: `./assets/revestimento0${i}.jpeg`
+    image: `./assets/images/portfolio/revestimento0${i}.jpeg`
 
   })
 }
@@ -88,8 +88,8 @@ function scrollToSection(sectionId) {
     element.scrollIntoView({ behavior: 'smooth' });
     // Close mobile menu if open
     const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-      mobileMenu.classList.add('hidden');
+    if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+      mobileMenu.classList.remove('is-open');
       updateMobileMenuIcon(false);
     }
   }
@@ -142,9 +142,9 @@ function initMobileMenu() {
   mobileMenuBtn.addEventListener('click', () => {
     isOpen = !isOpen;
     if (isOpen) {
-      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('is-open');
     } else {
-      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('is-open');
     }
     updateMobileMenuIcon(isOpen);
   });
@@ -172,54 +172,25 @@ function initPortfolio() {
   
   filterContainer.innerHTML = "";
 
-  categories.forEach( category => {
+  categories.forEach((category, index) => {
     const button = document.createElement("button");
-
-    button.textContent = category
-    button.className = baseClasses;
+    button.textContent = category;
+    button.className = "filter-btn" + (index === 0 ? " active" : "");
 
     button.addEventListener("click", () => {
       setActiveButton(button);
       filterPhotos(category);
     });
-    
-    filterContainer.appendChild(button);
-    
 
+    filterContainer.appendChild(button);
   });
 
 }
 
-const baseClasses = `
-  bg-gradient-to-br from-gray-900 to-gray-800
-  px-6 py-3
-  text-white
-  rounded-2xl
-  border-2 border-white/20
-  transition-all duration-300 ease-out
-  hover:shadow-2xl
-  hover:border-[#d7c87c]
-  hover:-translate-y-1
-`;
-
-const activeClasses = `
-  bg-gradient-to-br from-[#d7c87c] to-[#b6a85f]
-  text-black
-  shadow-2xl
-  scale-105
-  border-[#d7c87c]
-`;
-
-
-
 function setActiveButton(activeBtn) {
   const buttons = document.querySelectorAll("#filters button");
-
-  buttons.forEach(btn => {
-    btn.className = baseClasses;
-  });
-
-  activeBtn.className = `${baseClasses} ${activeClasses}`;
+  buttons.forEach(btn => btn.classList.remove("active"));
+  activeBtn.classList.add("active");
 }
 
 
@@ -235,41 +206,77 @@ function filterPhotos(category) {
   renderPhotos(filtered);
 }
 
+// Quantidade de Fotos que aparece no portfolio
+
+let imagesVisible = 3;
+
+const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+if (mediaQuery.matches) {
+  imagesVisible = 6;
+}
+
+// Botão de Ver mais
+
+let expanded = false;
+
+function extendImages() {
+  const portfolioSection = document.getElementById("portfolio");
+  const items = document.querySelectorAll('.portfolio-item');
+
+  const sectionTop = portfolioSection.offsetTop;
+
+  items.forEach((item, index) => {
+    if (index >= 4) {
+      if (expanded) {
+        item.classList.add('hidden');
+      } else {
+        item.classList.remove('hidden');
+      }
+    }
+  });
+
+  expanded = !expanded;
+
+  if (!expanded) {
+    window.scrollTo({
+      top: sectionTop - 50, // ajuste header fixo
+      behavior: "smooth"
+    });
+  }
+
+  //  muda texto do botão
+  const btn = document.getElementById("btn-ver-mais");
+  btn.textContent = expanded ? "Ver menos" : "Ver mais";
+}
+
+
+
 function renderPhotos(array) {
   const portfolioGrid = document.getElementById('portfolio-grid');
+
 
   // 🔥 LIMPA antes de renderizar
   portfolioGrid.innerHTML = "";
 
   array.forEach((project, index) => {
-    portfolioGrid.innerHTML += `
-      <div 
-        class="group relative overflow-hidden rounded-2xl cursor-pointer animate-on-scroll"
-        onclick="openPortfolioModalById('${project.image}')"
-      >
-        <!-- Imagem -->
-        <div class="aspect-square overflow-hidden bg-gray-800">
-          <img
-            src="${project.image}"
-            alt="${project.title}"
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
-        </div>
 
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute bottom-0 left-0 right-0 p-6">
-            <div class="flex items-start justify-between">
-              <div>
-                <p class="text-amber-400 text-sm font-semibold mb-1">
-                  ${project.category}
-                </p>
-                <h3 class="text-white text-xl font-bold">
-                  ${project.title}
-                </h3>
-              </div>
-              <i data-lucide="zoom-in" class="text-white flex-shrink-0 w-6 h-6"></i>
+    
+
+    const hiddenClass = index >= imagesVisible ? "hidden" : "";
+
+    portfolioGrid.innerHTML += `
+      <div class="portfolio-item ${hiddenClass} animate-fade-in" onclick="openPortfolioModalById('${project.image}')">
+        <div class="portfolio-item-inner">
+          <img src="${project.image}" alt="${project.title}" />
+        </div>
+        <div class="portfolio-item-overlay">
+          <div class="portfolio-item-caption">
+            <div>
+              <p>${project.category}</p>
+              <h3>${project.title}</h3>
             </div>
+            <i data-lucide="zoom-in"></i>
           </div>
         </div>
       </div>
@@ -294,15 +301,13 @@ function openPortfolioModalById(image) {
   modalTitle.textContent = project.title;
   modalCategory.textContent = project.category;
 
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
+  modal.classList.add('is-open');
 }
 
 // Close portfolio modal
 function closePortfolioModal() {
   const modal = document.getElementById('portfolio-modal');
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
+  modal.classList.remove('is-open');
 }
 
 // Initialize contact form
@@ -339,10 +344,10 @@ function initWhatsAppTooltip() {
   const tooltip = document.getElementById('whatsapp-tooltip');
   
   whatsappBtn.addEventListener('mouseenter', () => {
-    tooltip.classList.remove('hidden');
+    tooltip.style.display = 'block';
   });
-  
+
   whatsappBtn.addEventListener('mouseleave', () => {
-    tooltip.classList.add('hidden');
+    tooltip.style.display = 'none';
   });
 }
