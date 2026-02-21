@@ -1,0 +1,38 @@
+.showroom {
+    display: grid;
+    grid-template-columns:1fr ;
+    gap: 1rem;
+
+    h2 {
+        color: var(--color-gray-700);
+    }
+
+    .stat-card {
+        position: relative;
+        overflow: hidden;
+        
+    
+    .image-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            inset: 0;
+            z-index: 0;
+            opacity: .3;
+        }
+    }
+    
+    .stat-card .stat-number {
+        position: relative;
+        z-index: 2;
+    }
+
+}
+
+@media (min-width: 768px) {
+  .showroom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

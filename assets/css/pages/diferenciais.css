@@ -93,7 +93,11 @@
 }
 
 .cta-block-inner {
-  background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+  background: linear-gradient(to bottom right, var(--color-gray-100), var(--color-gray-300));
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-xl);
   padding: 3rem 4rem;
 }
