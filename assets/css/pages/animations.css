@@ -100,3 +100,12 @@
   white-space: nowrap;
   border: 0;
 }
+
+@keyframes glowMove {
+  0% {
+    transform: translate(-40%, -60%);
+  }
+  100% {
+    transform: translate(-60%, -40%);
+  }
+}

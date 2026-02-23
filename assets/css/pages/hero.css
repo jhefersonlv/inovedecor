@@ -11,16 +11,33 @@
 }
 
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom right, var(--color-gray-900), var(--color-black), var(--color-gray-900));
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to bottom right, var(--color-gray-500), var(--color-black), var(--color-gray-500)),
+        url("../../images/cta.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    z-index: -3;
+    transform: scale(1);
+    transition: transform 0.3s ease-out;
+    will-change: transform;
 }
 
 .hero-bg-glow {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.1), transparent 50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.15), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(120px);
+  animation: glowMove 12s infinite alternate ease-in-out;
+  z-index: -2;
 }
+
 
 .hero-bg::before {
   content: '';

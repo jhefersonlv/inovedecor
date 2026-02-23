@@ -351,3 +351,17 @@ function initWhatsAppTooltip() {
     tooltip.style.display = 'none';
   });
 }
+
+const heroBg = document.querySelector(".hero-bg");
+
+window.addEventListener("scroll", () => {
+  const offset = window.scrollY;
+  heroBg.style.transform = `scale(${1 + offset / 4000})`;
+});
+
+window.addEventListener("mousemove", (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 15;
+  const y = (e.clientY / window.innerHeight - 0.5) * 15;
+
+  heroBg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
+});
