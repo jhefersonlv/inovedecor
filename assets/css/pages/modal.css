@@ -1,0 +1,209 @@
+/* =========================
+   FUNDO ESCURO (OVERLAY)
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* Quando ativado */
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================
+   CAIXA DO MODAL
+========================= */
+
+.modal-box {
+  background: #ffffff;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+
+  transform: translateY(30px);
+  transition: transform 0.3s ease;
+}
+
+/* Animação ao abrir */
+.modal.active .modal-box {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   BOTÃO FECHAR
+========================= */
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-close:hover {
+  transform: scale(1.2);
+}
+
+
+/* =========================
+   GRID DE MATERIAIS
+========================= */
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.material-btn {
+    width: 15rem;
+    height: 15rem;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.material-btn:hover {
+    scale: 1.1;
+    border: 1px solid var(--color-primary-hover);
+    color: #fff;
+    
+    span {
+        background: #141414bb;
+        padding: .8rem;
+        border-radius: var(--radius-xl);
+    }
+}
+
+
+/* =========================
+   GRID DE PROJETOS
+========================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.project-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8f8f8;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  padding: 15px;
+  font-size: 16px;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+.back-btn {
+  border: none;
+  background: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+  .modal-box {
+    padding: 25px;
+  }
+
+  .project-card img {
+    height: 160px;
+  }
+
+  .material-btn {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+.material-header {
+  margin-bottom: 30px;
+}
+
+.material-header h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.material-header p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.material-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.material-specs span {
+  background: #f2f2f2;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.projects-title {
+  margin: 40px 0 20px;
+  font-size: 20px;
+}
