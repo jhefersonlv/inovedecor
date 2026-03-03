@@ -1,112 +1,432 @@
 
 
-// Portfolio Data
+// Portfolio Data – organizado por ambiente e materiais do catálogo Albory
+// Cada material tem foto em assets/images/materials/[slug].png
+// Cada projeto tem foto em assets/images/portfolio/
 
-const portfolioProjects = [];
+const portfolioProjects = [
+  // Cozinha / Área Gourmet – Bancadas (Corpo Completo, Corpo Branco, Corpo Bege)
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: './assets/images/portfolio/bancada01.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: './assets/images/portfolio/bancada02.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: './assets/images/portfolio/bancada03.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: './assets/images/portfolio/bancada04.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'crystal-white', image: './assets/images/portfolio/bancada05.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'crystal-white', image: './assets/images/portfolio/bancada06.jpeg' },
+  // Banheiro – Lavatórios (Corpo Branco)
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'atlantic-white', image: './assets/images/portfolio/lavatorio01.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'atlantic-white', image: './assets/images/portfolio/lavatorio02.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'spider-statuario', image: './assets/images/portfolio/lavatorio03.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'spider-statuario', image: './assets/images/portfolio/lavatorio04.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'nexa-white', image: './assets/images/portfolio/lavatorio05.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'nexa-white', image: './assets/images/portfolio/lavatorio06.jpeg' },
+  // Banheiro / Área Externa – Gabinetes (Cores Sólidas, Corpo Branco)
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'tinta-unita-bianco-natural', image: './assets/images/portfolio/gabinete01.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'tinta-unita-bianco-natural', image: './assets/images/portfolio/gabinete02.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'nano-white', image: './assets/images/portfolio/gabinete03.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'nano-white', image: './assets/images/portfolio/gabinete04.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'dark-grey', image: './assets/images/portfolio/gabinete05.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'dark-grey', image: './assets/images/portfolio/gabinete06.jpeg' },
+  // Banheiro – Bancada para cuba (Corpo Preto)
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'nero-marquina', image: './assets/images/portfolio/bancada-cuba-sobrepor01.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'nero-marquina', image: './assets/images/portfolio/bancada-cuba-sobrepor02.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'tinta-unita-nero-fosco', image: './assets/images/portfolio/bancada-cuba-sobrepor03.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'tinta-unita-nero-fosco', image: './assets/images/portfolio/bancada-cuba-sobrepor04.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'sahara-black', image: './assets/images/portfolio/bancada-cuba-sobrepor05.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'sahara-black', image: './assets/images/portfolio/bancada-cuba-sobrepor06.jpeg' },
+  // Sala / Escada – Revestimentos e degraus (Corpo Bege, Cores Sólidas)
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'taj-mahal-polido', image: './assets/images/portfolio/revestimento01.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'taj-mahal-polido', image: './assets/images/portfolio/revestimento02.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'travertino', image: './assets/images/portfolio/revestimento03.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'travertino', image: './assets/images/portfolio/revestimento04.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'dark-grey', image: './assets/images/portfolio/revestimento05.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'dark-grey', image: './assets/images/portfolio/revestimento06.jpeg' },
+];
 
-for (let i = 1; i <= 6; i++){
-  portfolioProjects.push({
-    title: 'Bancada de Cozinha Gourmet',
-    category: 'Bancadas',
-    area: ['kitchen', 'gourmet'],
-    material: 'macchia-oro',
-    image: `./assets/images/portfolio/bancada0${i}.jpeg`
-
-  })
-}
-
-for (let i = 1; i <= 6; i++){
-  portfolioProjects.push({
-    title: 'Lavatórios',
-    category: 'Lavatorios',
-    area: ['bathroom'],
-    material: 'calacatta',
-    image: `./assets/images/portfolio/lavatorio0${i}.jpeg`
-
-  })
-}
-
-for (let i = 1; i <= 6; i++){
-  portfolioProjects.push({
-    title: 'Gabinetes de banheiro em porcelanato',
-    category: 'Gabinetes',
-    area: ['bathroom', 'external'],
-    material: 'tinta-unita-bianco-natural',
-    image: `./assets/images/portfolio/gabinete0${i}.jpeg`
-
-  })
-}
-
-for (let i = 1; i <= 6; i++){
-  portfolioProjects.push({
-    title: 'Bancada para cuba de sobrepor',
-    category: 'Bancadas-para-cuba',
-    area: ['bathroom'],
-    material: 'tinta-unita-nero-fosco',
-    image: `./assets/images/portfolio/bancada-cuba-sobrepor0${i}.jpeg`
-
-  })
-}
-
-
-for (let i = 1; i <= 6; i++){
-  portfolioProjects.push({
-    title: 'Instalação de porcelanato e revestimentos',
-    category: 'Revestimentos',
-    area: ['stair', 'living-room'],
-    material: 'taj-mahal-polido',
-    image: `./assets/images/portfolio/revestimento0${i}.jpeg`
-
-  })
-}
-
+// Tipos de pedra do catálogo Albory – cada um com foto em assets/images/materials/[slug].png
 const materialsData = {
-
-  'macchia-oro': {
-    name: 'Macchia Oro',
-    description: 'Pedra sofisticada com fundo claro e veios dourados marcantes, trazendo elegância e requinte ao ambiente.',
-    finish: 'Polido',
-    resistance: 'Alta resistência a riscos e calor',
-    usage: 'Cozinhas, áreas gourmet e bancadas premium',
-    image: './assets/images/materials/macchia-oro.jpg'
+ // --- CORPO COMPLETO ---
+  'white-pearl': {
+    name: 'White Pearl',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/white-pearl.png'
   },
-
-  'calacatta': {
-    name: 'Calacatta',
-    description: 'Material de fundo branco com veios intensos e elegantes, ideal para ambientes luxuosos e modernos.',
-    finish: 'Polido',
-    resistance: 'Boa resistência térmica e estrutural',
-    usage: 'Banheiros, lavabos e painéis decorativos',
-    image: './assets/images/materials/calacatta.jpg'
+  'galaxy-beige': {
+    name: 'Galaxy Beige',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/galaxy-beige.png'
   },
-
-  'tinta-unita-bianco-natural': {
-    name: 'Tinta Unita Bianco Natural',
-    description: 'Superfície uniforme em tom branco natural, perfeita para projetos minimalistas e contemporâneos.',
-    finish: 'Natural',
-    resistance: 'Alta resistência a manchas e desgaste',
-    usage: 'Cozinhas, mobiliário planejado e painéis',
-    image: './assets/images/materials/tinta-unita-bianco-natural.jpg'
+  'galaxy-light-grey': {
+    name: 'Galaxy Light Grey',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/galaxy-light-grey.png'
   },
-
-  'tinta-unita-nero-fosco': {
-    name: 'Tinta Unita Nero Fosco',
-    description: 'Superfície preta fosca de acabamento sofisticado, ideal para projetos modernos e industriais.',
+  'barry-grey': {
+    name: 'Barry Grey',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/barry-grey.png'
+  },
+  'lakha-red': {
+    name: 'Lakha Red',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/lakha-red.png'
+  },
+  'nero-chips': {
+    name: 'Nero Chips',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/nero-chips.png'
+  },
+  'terrazo-grey': {
+    name: 'Terrazo Grey',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/terrazo-grey.png'
+  },
+  'crystal-white': {
+    name: 'Crystal White',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/crystal-white.png'
+  },
+  'ferro-chips': {
+    name: 'Ferro Chips',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/ferro-chips.png'
+  },
+  'marrom-brown': {
+    name: 'Marrom Brown',
+    description: 'Corpo completo fosco. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
     finish: 'Fosco',
-    resistance: 'Alta resistência a riscos e abrasão',
-    usage: 'Escadas, bancadas, áreas gourmet e mobiliário',
-    image: './assets/images/materials/tinta-unita-nero-fosco.jpg'
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/marrom-brown.png'
+  },
+  'dark-grey': {
+    name: 'Dark Grey',
+    description: 'Corpo completo fosco. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Fosco',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/dark-grey.png'
+  },
+  'larix-black': {
+    name: 'Larix Black',
+    description: 'Corpo completo fosco. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Fosco',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/larix-black.png'
+  },
+  'jaisalmer': {
+    name: 'Jaisalmer',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/jaisalmer.png'
+  },
+  'nano-white': {
+    name: 'Nano White',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/nano-white.png'
+  },
+  'crema-ivory': {
+    name: 'Crema Ivory',
+    description: 'Corpo completo brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Completo',
+    image: './assets/images/materials/crema-ivory.png'
   },
 
-  'taj-mahal-polido': {
-    name: 'Taj Mahal Polido',
-    description: 'Quartzito nobre de tonalidade bege suave com veios delicados, trazendo sofisticação e leveza ao ambiente.',
-    finish: 'Polido',
-    resistance: 'Altíssima resistência térmica e estrutural',
-    usage: 'Cozinhas, ilhas centrais e áreas internas sofisticadas',
-    image: './assets/images/materials/taj-mahal-polido.jpg'
-  }
+  // --- CORPO COLORIDO ---
+  'zed-black': {
+    name: 'Zed Black',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/zed-black.png'
+  },
+  'atlantic-white': {
+    name: 'Atlantic White',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/atlantic-white.png'
+  },
+  'bianco-lasa': {
+    name: 'Bianco Lasa',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/bianco-lasa.png'
+  },
+  'golden-othello': {
+    name: 'Golden Othello',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/golden-othello.png'
+  },
+  'nexa-white': {
+    name: 'Nexa White',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/nexa-white.png'
+  },
+  'imperial-white': {
+    name: 'Imperial White',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/imperial-white.png'
+  },
+  'white-topaz': {
+    name: 'White Topaz',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/white-topaz.png'
+  },
+  'breccia-max': {
+    name: 'Breccia Max',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/breccia-max.png'
+  },
+  'dyna-turkish': {
+    name: 'Dyna Turkish',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/dyna-turkish.png'
+  },
+  'aspen-brown': {
+    name: 'Aspen Brown',
+    description: 'Corpo colorido fosco. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Fosco',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/aspen-brown.png'
+  },
+  'aspen-walnut': {
+    name: 'Aspen Walnut',
+    description: 'Corpo colorido fosco. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Fosco',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/aspen-walnut.png'
+  },
+  'lumuria-negro': {
+    name: 'Lumuria Negro',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/lumuria-negro.png'
+  },
+  'monet-black': {
+    name: 'Monet Black',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/monet-black.png'
+  },
+  'nero-marquina': {
+    name: 'Nero Marquina',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/nero-marquina.png'
+  },
+  'ocean-blue': {
+    name: 'Ocean Blue',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/ocean-blue.png'
+  },
+  'sahara-black': {
+    name: 'Sahara Black',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/sahara-black.png'
+  },
+  'black-river': {
+    name: 'Black River',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/black-river.png'
+  },
+  'tauras-black': {
+    name: 'Tauras Black',
+    description: 'Corpo colorido brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/tauras-black.png'
+  },
 
+  // --- OUTRAS TIPOLOGIAS (BRANCO, BEGE, CARVING) ---
+  'vintage-white': {
+    name: 'Vintage White',
+    description: 'Corpo branco fosco. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Fosco',
+    typology: 'Corpo Branco',
+    image: './assets/images/materials/vintage-white.png'
+  },
+  'spider-statuario': {
+    name: 'Spider Statuario',
+    description: 'Corpo branco brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Branco',
+    image: './assets/images/materials/spider-statuario.png'
+  },
+  'helix-white': {
+    name: 'Helix White',
+    description: 'Corpo bege brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Bege',
+    image: './assets/images/materials/helix-white.png'
+  },
+  'travertino': {
+    name: 'Travertino',
+    description: 'Corpo bege brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Bege',
+    image: './assets/images/materials/travertino.png'
+  },
+  'aspen-pine': {
+    name: 'Aspen Pine',
+    description: 'Corpo bege brilhante. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Brilhante',
+    typology: 'Corpo Bege',
+    image: './assets/images/materials/aspen-pine.png'
+  },
+  'm-white-topaz': {
+    name: 'M White Topaz',
+    description: 'Corpo colorido carving. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Carving',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/m-white-topaz.png'
+  },
+  'pacific-white': {
+    name: 'Pacific White',
+    description: 'Corpo colorido carving. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Carving',
+    typology: 'Corpo Colorido',
+    image: './assets/images/materials/pacific-white.png'
+  },
+  'sparkle-dark-grey': {
+    name: 'Sparkle Dark Grey',
+    description: 'Tipologia carving com acabamento carving. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Carving',
+    typology: 'Carving',
+    image: './assets/images/materials/sparkle-dark-grey.png'
+  },
+  'acero-white': {
+    name: 'Acero White',
+    description: 'Tipologia carving com acabamento carving. Ideal para tampos de móveis de cozinha, cuba, moldura de porta/janela, degrau e piso de alto tráfego.',
+    size: '800x2400mm',
+    thickness: '15mm',
+    finish: 'Carving',
+    typology: 'Carving',
+    image: './assets/images/materials/acero-white.png'
+  }
 };
 
 const categories = ["Todos", ...new Set(portfolioProjects.map(p => p.category))];
@@ -469,38 +789,35 @@ areaContainer.addEventListener('click', (event) => {
 ================================= */
 
 function openMaterialsModal(area) {
+  const materialsEntries = getAllMaterialsEntries()
+    .filter(({ info }) => isMaterialAvailable(info))
+    .sort((a, b) => {
+      const aName = (a.info?.name || a.info?.nome || a.id || '').toString();
+      const bName = (b.info?.name || b.info?.nome || b.id || '').toString();
+      return aName.localeCompare(bName, 'pt-BR', { sensitivity: 'base' });
+    });
 
-  console.log(area)
-  // Filtra projetos pela área
-  const projectsByArea = portfolioProjects.filter(
-    project => project.area.includes(area)
-  );
-
-  // Pega materiais únicos
-  const uniqueMaterials = [...new Set(
-    projectsByArea.map(project => project.material)
-  )];
-
-  // Monta HTML
   modalContent.innerHTML = `
     <h2>Materiais disponíveis</h2>
     <div class="materials-grid">
-      ${uniqueMaterials.map(material => `
+      ${materialsEntries.map(({ id, info }) => {
+        const displayName = (info?.name || info?.nome || formatMaterialName(id));
+        const bgImage = getMaterialImageUrl(id, info);
+        return `
         <button 
           class="material-btn" 
           data-area="${area}" 
-          data-material="${material}"
-          style="background-image: url('assets/images/materials/${material}.jpg')"
+          data-material="${id}"
+          style="background-image: url('${bgImage}')"
         >
-        <span>${formatMaterialName(material)}</span>
+        <span>${displayName}</span>
         </button>
-      `).join('')}
+      `}).join('')}
     </div>
   `;
 
   modal.classList.add('active');
 
-  // Adiciona evento aos botões
   const materialButtons = document.querySelectorAll('.material-btn');
 
   materialButtons.forEach(button => {
@@ -519,6 +836,14 @@ function openMaterialsModal(area) {
 function openProjectsByMaterial(area, material) {
 
   const materialInfo = materialsData[material];
+  if (!materialInfo) {
+    openMaterialsModal(area);
+    return;
+  }
+  if (!isMaterialAvailable(materialInfo)) {
+    openMaterialsModal(area);
+    return;
+  }
 
   const filteredProjects = portfolioProjects.filter(
     project =>
@@ -526,29 +851,33 @@ function openProjectsByMaterial(area, material) {
       project.material === material
   );
 
+  const specs = normalizeMaterialSpecs(materialInfo);
+
   modalContent.innerHTML = `
     <button class="back-btn">← Voltar</button>
 
     <div class="material-header">
-      <h2>${materialInfo.name}</h2>
-      <p>${materialInfo.description}</p>
+      <h2>${specs.nome}</h2>
+      ${specs.descricao ? `<p>${specs.descricao}</p>` : ''}
 
       <div class="material-specs">
-        <span><strong>Acabamento:</strong> ${materialInfo.finish}</span>
-        <span><strong>Resistência:</strong> ${materialInfo.resistance}</span>
-        <span><strong>Indicação:</strong> ${materialInfo.usage}</span>
+        ${specs.acabamento ? `<span><strong>Acabamento:</strong> ${specs.acabamento}</span>` : ''}
+        ${specs.tamanho ? `<span><strong>Tamanho:</strong> ${specs.tamanho}</span>` : ''}
+        ${specs.espessura ? `<span><strong>Espessura:</strong> ${specs.espessura}</span>` : ''}
+        ${specs.tipologia ? `<span><strong>Tipologia:</strong> ${specs.tipologia}</span>` : ''}
       </div>
+      ${specs.nome ? `<img class="image-showroom-model" src="assets/images/materials/models/${specs.nome.toLowerCase().trim().replace(/\s+/g, '-')}-model.png">` : ''}
     </div>
 
     <h3 class="projects-title">Projetos realizados com esta pedra</h3>
 
     <div class="projects-grid">
-      ${filteredProjects.map(project => `
+      ${filteredProjects.length ? filteredProjects.map(project => `
         <div class="project-card">
-          <img src="${project.image}" alt="${project.title}">
+          <img src="${project.image}" alt="${project.title}" onerror="this.onerror=null;this.src='assets/images/cta.jpg';">
           <h4>${project.title}</h4>
         </div>
-      `).join('')}
+      `).join('') : `<p style="grid-column: 1 / -1; color: rgba(255,255,255,0.55); margin: 0.5rem 0 0;">Ainda não temos serviços cadastrados para esta pedra neste ambiente.</p>`}
     </div>
   `;
 
@@ -556,6 +885,54 @@ function openProjectsByMaterial(area, material) {
     .addEventListener('click', () => {
       openMaterialsModal(area);
     });
+}
+
+function getAllMaterialsEntries() {
+  // Suporta materialsData como objeto (slug -> info) ou array de objetos
+  if (Array.isArray(materialsData)) {
+    return materialsData
+      .map((info) => {
+        const id = info?.id || info?.slug || info?.key || (info?.name ? slugifyMaterialName(info.name) : null);
+        return id ? { id, info } : null;
+      })
+      .filter(Boolean);
+  }
+
+  return Object.keys(materialsData || {}).map((id) => ({ id, info: materialsData[id] }));
+}
+
+function getMaterialImageUrl(id, info) {
+  const raw = info?.image || info?.imagem;
+  if (typeof raw === 'string' && raw.trim()) return raw.replace('./', '');
+  return `assets/images/materials/${id}.png`;
+}
+
+function normalizeMaterialSpecs(info) {
+  // Compatível com seu formato novo (PT) e o antigo (EN)
+  const nome = info?.nome || info?.name || '';
+  const descricao = info?.descricao || info?.description || '';
+  const acabamento = info?.acabamento || info?.finish || '';
+  const tamanho = info?.size || '';
+  const espessura = info?.thickness || '';
+  const tipologia = info?.typology || '';
+  const indicacao = info?.indicacao || info?.indicação || info?.usage || '';
+  const disponivel = info?.disponivel ?? info?.disponível ?? info?.available ?? true;
+
+  return { nome, descricao, acabamento, tamanho, espessura, tipologia, indicacao, disponivel };
+}
+
+function slugifyMaterialName(name) {
+  return String(name)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function isMaterialAvailable(info) {
+  const specs = normalizeMaterialSpecs(info || {});
+  return specs.disponivel !== false;
 }
 
 
