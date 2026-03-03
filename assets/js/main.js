@@ -469,6 +469,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize WhatsApp tooltip
   initWhatsAppTooltip();
+
+  // Initialize showroom
+  initShowroom();
 });
 
 // Scroll to section function
@@ -756,39 +759,53 @@ window.addEventListener("mousemove", (e) => {
   heroBg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
 });
 
-// Showroom
+// Showroom - Initialize
+function initShowroom() {
+  const modal = document.querySelector('.modal');
+  const modalContent = document.querySelector('.modal-content');
+  const modalClose = document.querySelector('.modal-close');
 
-const modal = document.querySelector('.modal');
-const modalContent = document.querySelector('.modal-content');
-const modalClose = document.querySelector('.modal-close');
+  const areaContainer = document.querySelector('.showroom');
 
-//Rastreia qual div foi clicada
+  if (!areaContainer) return; // Se não encontrar o container, sai
 
-const areaContainer = document.querySelector('.showroom');
-
-areaContainer.addEventListener('click', (event) => {
+  areaContainer.addEventListener('click', (event) => {
   
-  // Procura o elemento mais próximo com a classe area-card
-  const clickedCard = event.target.closest('.showroom-card');
+    // Procura o elemento mais próximo com a classe area-card
+    const clickedCard = event.target.closest('.showroom-card');
 
-  // Se não clicou em um card, sai da função
-  if (!clickedCard) return;
+    // Se não clicou em um card, sai da função
+    if (!clickedCard) return;
 
-  // Aqui você sabe exatamente qual foi clicado
-  const selectedArea = clickedCard.dataset.area;
+    // Aqui você sabe exatamente qual foi clicado
+    const selectedArea = clickedCard.dataset.area;
 
-  // Abre o modal
-  openMaterialsModal(selectedArea);
+    // Abre o modal
+    openMaterialsModal(selectedArea, modal, modalContent);
 
-})
+  });
 
-
+  // Fechar modal ao clicar no X
+  modal.addEventListener('click', (e) => {
+    // Se clicou no X
+    if (e.target.classList.contains('modal-close')) {
+      e.stopPropagation();
+      modal.classList.remove('active');
+      return;
+    }
+    
+    // Se clicou fora do modal-box (na área escura)
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+}
 
 /* ===============================
    4️⃣  MOSTRAR MATERIAIS DA ÁREA
 ================================= */
 
-function openMaterialsModal(area) {
+function openMaterialsModal(area, modal, modalContent) {
   const materialsEntries = getAllMaterialsEntries()
     .filter(({ info }) => isMaterialAvailable(info))
     .sort((a, b) => {
@@ -823,7 +840,7 @@ function openMaterialsModal(area) {
   materialButtons.forEach(button => {
     button.addEventListener('click', () => {
       const selectedMaterial = button.dataset.material;
-      openProjectsByMaterial(area, selectedMaterial);
+      openProjectsByMaterial(area, selectedMaterial, modal, modalContent);
     });
   });
 }
@@ -833,15 +850,15 @@ function openMaterialsModal(area) {
    5️⃣  MOSTRAR PROJETOS DO MATERIAL
 ================================= */
 
-function openProjectsByMaterial(area, material) {
+function openProjectsByMaterial(area, material, modal, modalContent) {
 
   const materialInfo = materialsData[material];
   if (!materialInfo) {
-    openMaterialsModal(area);
+    openMaterialsModal(area, modal, modalContent);
     return;
   }
   if (!isMaterialAvailable(materialInfo)) {
-    openMaterialsModal(area);
+    openMaterialsModal(area, modal, modalContent);
     return;
   }
 
@@ -877,27 +894,16 @@ function openProjectsByMaterial(area, material) {
           <img src="${project.image}" alt="${project.title}" onerror="this.onerror=null;this.src='assets/images/cta.jpg';">
           <h4>${project.title}</h4>
         </div>
-      `).join('') : `<p style="grid-column: 1 / -1; color: rgba(255,255,255,0.55); margin: 0.5rem 0 0;">Ainda não temos serviços cadastrados para esta pedra neste ambiente.</p>
-        <button onclick="openWhatsAppShowroom('${project.name}')" class="btn-secondary">
-            <i data-lucide="message-circle"></i>
-            Falar no WhatsApp
-          </button>
-      `}
+      `).join('') : `<p style="grid-column: 1 / -1; color: rgba(255,255,255,0.55); margin: 0.5rem 0 0;">Ainda não temos serviços cadastrados para esta pedra neste ambiente.</p>`}
     </div>
   `;
 
   document.querySelector('.back-btn')
     .addEventListener('click', () => {
-      openMaterialsModal(area);
+      openMaterialsModal(area, modal, modalContent);
     });
 }
 
-// Open WhatsApp Showroom
-function openWhatsAppShowroom(mensagem) {
-  const phoneNumber = '11972883448';
-  const message = `Olá! vim através do site e Gostaria de solicitar um orçamento. com a pedra ${mensagem}`;
-  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-}
 
 function getAllMaterialsEntries() {
   // Suporta materialsData como objeto (slug -> info) ou array de objetos
@@ -948,27 +954,10 @@ function isMaterialAvailable(info) {
 }
 
 
+
+
 /* ===============================
    6️⃣  FECHAR MODAL
 ================================= */
 
-
-
-// Método 2: Delegação de eventos no modal
-modal.addEventListener('click', (e) => {
-  // Se clicou no X
-  if (e.target.classList.contains('modal-close')) {
-    e.stopPropagation();
-    modal.classList.remove('active');
-    return;
-  }
-  
-  // Se clicou fora do modal-box (na área escura)
-  if (e.target === modal) {
-    modal.classList.remove('active');
-  }
-});
-
-
-
-
+// Modal listeners are initialized inside initShowroom() function
