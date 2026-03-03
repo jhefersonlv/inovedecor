@@ -6,40 +6,40 @@
 
 const portfolioProjects = [
   // Cozinha / Área Gourmet – Bancadas (Corpo Completo, Corpo Branco, Corpo Bege)
-  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: './assets/images/portfolio/bancada01.jpeg' },
-  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: './assets/images/portfolio/bancada02.jpeg' },
-  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: './assets/images/portfolio/bancada03.jpeg' },
-  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: './assets/images/portfolio/bancada04.jpeg' },
-  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'crystal-white', image: './assets/images/portfolio/bancada05.jpeg' },
-  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'crystal-white', image: './assets/images/portfolio/bancada06.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: 'assets/images/portfolio/bancada01.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: 'assets/images/portfolio/bancada02.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: 'assets/images/portfolio/bancada03.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: 'assets/images/portfolio/bancada04.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'crystal-white', image: 'assets/images/portfolio/bancada05.jpeg' },
+  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'crystal-white', image: 'assets/images/portfolio/bancada06.jpeg' },
   // Banheiro – Lavatórios (Corpo Branco)
-  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'atlantic-white', image: './assets/images/portfolio/lavatorio01.jpeg' },
-  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'atlantic-white', image: './assets/images/portfolio/lavatorio02.jpeg' },
-  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'spider-statuario', image: './assets/images/portfolio/lavatorio03.jpeg' },
-  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'spider-statuario', image: './assets/images/portfolio/lavatorio04.jpeg' },
-  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'nexa-white', image: './assets/images/portfolio/lavatorio05.jpeg' },
-  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'nexa-white', image: './assets/images/portfolio/lavatorio06.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'atlantic-white', image: 'assets/images/portfolio/lavatorio01.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'atlantic-white', image: 'assets/images/portfolio/lavatorio02.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'spider-statuario', image: 'assets/images/portfolio/lavatorio03.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'spider-statuario', image: 'assets/images/portfolio/lavatorio04.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'nexa-white', image: 'assets/images/portfolio/lavatorio05.jpeg' },
+  { title: 'Lavatórios', category: 'Lavatorios', area: ['bathroom'], material: 'nexa-white', image: 'assets/images/portfolio/lavatorio06.jpeg' },
   // Banheiro / Área Externa – Gabinetes (Cores Sólidas, Corpo Branco)
-  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'tinta-unita-bianco-natural', image: './assets/images/portfolio/gabinete01.jpeg' },
-  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'tinta-unita-bianco-natural', image: './assets/images/portfolio/gabinete02.jpeg' },
-  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'nano-white', image: './assets/images/portfolio/gabinete03.jpeg' },
-  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'nano-white', image: './assets/images/portfolio/gabinete04.jpeg' },
-  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'dark-grey', image: './assets/images/portfolio/gabinete05.jpeg' },
-  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'dark-grey', image: './assets/images/portfolio/gabinete06.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'tinta-unita-bianco-natural', image: 'assets/images/portfolio/gabinete01.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'tinta-unita-bianco-natural', image: 'assets/images/portfolio/gabinete02.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'nano-white', image: 'assets/images/portfolio/gabinete03.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'nano-white', image: 'assets/images/portfolio/gabinete04.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'dark-grey', image: 'assets/images/portfolio/gabinete05.jpeg' },
+  { title: 'Gabinetes em porcelanato', category: 'Gabinetes', area: ['bathroom', 'external'], material: 'dark-grey', image: 'assets/images/portfolio/gabinete06.jpeg' },
   // Banheiro – Bancada para cuba (Corpo Preto)
-  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'nero-marquina', image: './assets/images/portfolio/bancada-cuba-sobrepor01.jpeg' },
-  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'nero-marquina', image: './assets/images/portfolio/bancada-cuba-sobrepor02.jpeg' },
-  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'tinta-unita-nero-fosco', image: './assets/images/portfolio/bancada-cuba-sobrepor03.jpeg' },
-  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'tinta-unita-nero-fosco', image: './assets/images/portfolio/bancada-cuba-sobrepor04.jpeg' },
-  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'sahara-black', image: './assets/images/portfolio/bancada-cuba-sobrepor05.jpeg' },
-  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'sahara-black', image: './assets/images/portfolio/bancada-cuba-sobrepor06.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'nero-marquina', image: 'assets/images/portfolio/bancada-cuba-sobrepor01.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'nero-marquina', image: 'assets/images/portfolio/bancada-cuba-sobrepor02.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'tinta-unita-nero-fosco', image: 'assets/images/portfolio/bancada-cuba-sobrepor03.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'tinta-unita-nero-fosco', image: 'assets/images/portfolio/bancada-cuba-sobrepor04.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'sahara-black', image: 'assets/images/portfolio/bancada-cuba-sobrepor05.jpeg' },
+  { title: 'Bancada para cuba de sobrepor', category: 'Bancadas-para-cuba', area: ['bathroom'], material: 'sahara-black', image: 'assets/images/portfolio/bancada-cuba-sobrepor06.jpeg' },
   // Sala / Escada – Revestimentos e degraus (Corpo Bege, Cores Sólidas)
-  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'taj-mahal-polido', image: './assets/images/portfolio/revestimento01.jpeg' },
-  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'taj-mahal-polido', image: './assets/images/portfolio/revestimento02.jpeg' },
-  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'travertino', image: './assets/images/portfolio/revestimento03.jpeg' },
-  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'travertino', image: './assets/images/portfolio/revestimento04.jpeg' },
-  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'dark-grey', image: './assets/images/portfolio/revestimento05.jpeg' },
-  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'dark-grey', image: './assets/images/portfolio/revestimento06.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'taj-mahal-polido', image: 'assets/images/portfolio/revestimento01.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'taj-mahal-polido', image: 'assets/images/portfolio/revestimento02.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'travertino', image: 'assets/images/portfolio/revestimento03.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'travertino', image: 'assets/images/portfolio/revestimento04.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'dark-grey', image: 'assets/images/portfolio/revestimento05.jpeg' },
+  { title: 'Revestimento e porcelanato', category: 'Revestimentos', area: ['stair', 'living-room'], material: 'dark-grey', image: 'assets/images/portfolio/revestimento06.jpeg' },
 ];
 
 // Tipos de pedra do catálogo Albory – cada um com foto em assets/images/materials/[slug].png
@@ -52,7 +52,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/white-pearl.png'
+    image: 'assets/images/materials/white-pearl.png'
   },
   'galaxy-beige': {
     name: 'Galaxy Beige',
@@ -61,7 +61,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/galaxy-beige.png'
+    image: 'assets/images/materials/galaxy-beige.png'
   },
   'galaxy-light-grey': {
     name: 'Galaxy Light Grey',
@@ -70,7 +70,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/galaxy-light-grey.png'
+    image: 'assets/images/materials/galaxy-light-grey.png'
   },
   'barry-grey': {
     name: 'Barry Grey',
@@ -79,7 +79,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/barry-grey.png'
+    image: 'assets/images/materials/barry-grey.png'
   },
   'lakha-red': {
     name: 'Lakha Red',
@@ -88,7 +88,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/lakha-red.png'
+    image: 'assets/images/materials/lakha-red.png'
   },
   'nero-chips': {
     name: 'Nero Chips',
@@ -97,7 +97,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/nero-chips.png'
+    image: 'assets/images/materials/nero-chips.png'
   },
   'terrazo-grey': {
     name: 'Terrazo Grey',
@@ -106,7 +106,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/terrazo-grey.png'
+    image: 'assets/images/materials/terrazo-grey.png'
   },
   'crystal-white': {
     name: 'Crystal White',
@@ -115,7 +115,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/crystal-white.png'
+    image: 'assets/images/materials/crystal-white.png'
   },
   'ferro-chips': {
     name: 'Ferro Chips',
@@ -124,7 +124,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/ferro-chips.png'
+    image: 'assets/images/materials/ferro-chips.png'
   },
   'marrom-brown': {
     name: 'Marrom Brown',
@@ -133,7 +133,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Fosco',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/marrom-brown.png'
+    image: 'assets/images/materials/marrom-brown.png'
   },
   'dark-grey': {
     name: 'Dark Grey',
@@ -142,7 +142,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Fosco',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/dark-grey.png'
+    image: 'assets/images/materials/dark-grey.png'
   },
   'larix-black': {
     name: 'Larix Black',
@@ -151,7 +151,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Fosco',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/larix-black.png'
+    image: 'assets/images/materials/larix-black.png'
   },
   'jaisalmer': {
     name: 'Jaisalmer',
@@ -160,7 +160,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/jaisalmer.png'
+    image: 'assets/images/materials/jaisalmer.png'
   },
   'nano-white': {
     name: 'Nano White',
@@ -169,7 +169,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/nano-white.png'
+    image: 'assets/images/materials/nano-white.png'
   },
   'crema-ivory': {
     name: 'Crema Ivory',
@@ -178,7 +178,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Completo',
-    image: './assets/images/materials/crema-ivory.png'
+    image: 'assets/images/materials/crema-ivory.png'
   },
 
   // --- CORPO COLORIDO ---
@@ -189,7 +189,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/zed-black.png'
+    image: 'assets/images/materials/zed-black.png'
   },
   'atlantic-white': {
     name: 'Atlantic White',
@@ -198,7 +198,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/atlantic-white.png'
+    image: 'assets/images/materials/atlantic-white.png'
   },
   'bianco-lasa': {
     name: 'Bianco Lasa',
@@ -207,7 +207,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/bianco-lasa.png'
+    image: 'assets/images/materials/bianco-lasa.png'
   },
   'golden-othello': {
     name: 'Golden Othello',
@@ -216,7 +216,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/golden-othello.png'
+    image: 'assets/images/materials/golden-othello.png'
   },
   'nexa-white': {
     name: 'Nexa White',
@@ -225,7 +225,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/nexa-white.png'
+    image: 'assets/images/materials/nexa-white.png'
   },
   'imperial-white': {
     name: 'Imperial White',
@@ -234,7 +234,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/imperial-white.png'
+    image: 'assets/images/materials/imperial-white.png'
   },
   'white-topaz': {
     name: 'White Topaz',
@@ -243,7 +243,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/white-topaz.png'
+    image: 'assets/images/materials/white-topaz.png'
   },
   'breccia-max': {
     name: 'Breccia Max',
@@ -252,7 +252,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/breccia-max.png'
+    image: 'assets/images/materials/breccia-max.png'
   },
   'dyna-turkish': {
     name: 'Dyna Turkish',
@@ -261,7 +261,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/dyna-turkish.png'
+    image: 'assets/images/materials/dyna-turkish.png'
   },
   'aspen-brown': {
     name: 'Aspen Brown',
@@ -270,7 +270,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Fosco',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/aspen-brown.png'
+    image: 'assets/images/materials/aspen-brown.png'
   },
   'aspen-walnut': {
     name: 'Aspen Walnut',
@@ -279,7 +279,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Fosco',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/aspen-walnut.png'
+    image: 'assets/images/materials/aspen-walnut.png'
   },
   'lumuria-negro': {
     name: 'Lumuria Negro',
@@ -288,7 +288,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/lumuria-negro.png'
+    image: 'assets/images/materials/lumuria-negro.png'
   },
   'monet-black': {
     name: 'Monet Black',
@@ -297,7 +297,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/monet-black.png'
+    image: 'assets/images/materials/monet-black.png'
   },
   'nero-marquina': {
     name: 'Nero Marquina',
@@ -306,7 +306,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/nero-marquina.png'
+    image: 'assets/images/materials/nero-marquina.png'
   },
   'ocean-blue': {
     name: 'Ocean Blue',
@@ -315,7 +315,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/ocean-blue.png'
+    image: 'assets/images/materials/ocean-blue.png'
   },
   'sahara-black': {
     name: 'Sahara Black',
@@ -324,7 +324,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/sahara-black.png'
+    image: 'assets/images/materials/sahara-black.png'
   },
   'black-river': {
     name: 'Black River',
@@ -333,7 +333,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/black-river.png'
+    image: 'assets/images/materials/black-river.png'
   },
   'tauras-black': {
     name: 'Tauras Black',
@@ -342,7 +342,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/tauras-black.png'
+    image: 'assets/images/materials/tauras-black.png'
   },
 
   // --- OUTRAS TIPOLOGIAS (BRANCO, BEGE, CARVING) ---
@@ -353,7 +353,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Fosco',
     typology: 'Corpo Branco',
-    image: './assets/images/materials/vintage-white.png'
+    image: 'assets/images/materials/vintage-white.png'
   },
   'spider-statuario': {
     name: 'Spider Statuario',
@@ -362,7 +362,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Branco',
-    image: './assets/images/materials/spider-statuario.png'
+    image: 'assets/images/materials/spider-statuario.png'
   },
   'helix-white': {
     name: 'Helix White',
@@ -371,7 +371,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Bege',
-    image: './assets/images/materials/helix-white.png'
+    image: 'assets/images/materials/helix-white.png'
   },
   'travertino': {
     name: 'Travertino',
@@ -380,7 +380,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Bege',
-    image: './assets/images/materials/travertino.png'
+    image: 'assets/images/materials/travertino.png'
   },
   'aspen-pine': {
     name: 'Aspen Pine',
@@ -389,7 +389,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Brilhante',
     typology: 'Corpo Bege',
-    image: './assets/images/materials/aspen-pine.png'
+    image: 'assets/images/materials/aspen-pine.png'
   },
   'm-white-topaz': {
     name: 'M White Topaz',
@@ -398,7 +398,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Carving',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/m-white-topaz.png'
+    image: 'assets/images/materials/m-white-topaz.png'
   },
   'pacific-white': {
     name: 'Pacific White',
@@ -407,7 +407,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Carving',
     typology: 'Corpo Colorido',
-    image: './assets/images/materials/pacific-white.png'
+    image: 'assets/images/materials/pacific-white.png'
   },
   'sparkle-dark-grey': {
     name: 'Sparkle Dark Grey',
@@ -416,7 +416,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Carving',
     typology: 'Carving',
-    image: './assets/images/materials/sparkle-dark-grey.png'
+    image: 'assets/images/materials/sparkle-dark-grey.png'
   },
   'acero-white': {
     name: 'Acero White',
@@ -425,7 +425,7 @@ const materialsData = {
     thickness: '15mm',
     finish: 'Carving',
     typology: 'Carving',
-    image: './assets/images/materials/acero-white.png'
+    image: 'assets/images/materials/acero-white.png'
   }
 };
 
