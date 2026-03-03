@@ -877,7 +877,12 @@ function openProjectsByMaterial(area, material) {
           <img src="${project.image}" alt="${project.title}" onerror="this.onerror=null;this.src='assets/images/cta.jpg';">
           <h4>${project.title}</h4>
         </div>
-      `).join('') : `<p style="grid-column: 1 / -1; color: rgba(255,255,255,0.55); margin: 0.5rem 0 0;">Ainda não temos serviços cadastrados para esta pedra neste ambiente.</p>`}
+      `).join('') : `<p style="grid-column: 1 / -1; color: rgba(255,255,255,0.55); margin: 0.5rem 0 0;">Ainda não temos serviços cadastrados para esta pedra neste ambiente.</p>
+        <button onclick="openWhatsAppShowroom('${project.name}')" class="btn-secondary">
+            <i data-lucide="message-circle"></i>
+            Falar no WhatsApp
+          </button>
+      `}
     </div>
   `;
 
@@ -885,6 +890,13 @@ function openProjectsByMaterial(area, material) {
     .addEventListener('click', () => {
       openMaterialsModal(area);
     });
+}
+
+// Open WhatsApp Showroom
+function openWhatsAppShowroom(mensagem) {
+  const phoneNumber = '11972883448';
+  const message = `Olá! vim através do site e Gostaria de solicitar um orçamento. com a pedra ${mensagem}`;
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 function getAllMaterialsEntries() {
