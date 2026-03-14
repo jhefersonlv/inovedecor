@@ -6,7 +6,12 @@
 
 const portfolioProjects = [
   // Cozinha / Área Gourmet – Bancadas (Corpo Completo, Corpo Branco, Corpo Bege)
-  { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: 'assets/images/portfolio/bancada01.jpeg' },
+    { title: 'Bancada Cozinha',
+      category: 'Bancadas', 
+      area: ['kitchen', 'gourmet'],
+      material: 'white-pearl',
+      image: 'assets/images/portfolio/bancada01.jpeg' },
+
   { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'white-pearl', image: 'assets/images/portfolio/bancada02.jpeg' },
   { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: 'assets/images/portfolio/bancada03.jpeg' },
   { title: 'Bancada Cozinha', category: 'Bancadas', area: ['kitchen', 'gourmet'], material: 'galaxy-beige', image: 'assets/images/portfolio/bancada04.jpeg' },

@@ -7,6 +7,7 @@
   color: var(--color-white);
   padding-top: 3rem;
   padding-bottom: 3rem;
+  overflow: hidden;
 }
 
 .footer-grid {
@@ -86,6 +87,8 @@
 .footer-bottom {
   text-align: center;
   color: var(--color-gray-400);
+  max-width: 80vw;
+  margin-inline: auto;
 }
 
 .footer-bottom .highlight {
@@ -105,6 +108,7 @@
 
 @media (min-width: 768px) {
   .footer-grid {
+    border: 10px solid red;
     grid-template-columns: repeat(2, 1fr);
   }
 }
