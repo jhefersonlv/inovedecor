@@ -108,7 +108,6 @@
 
 @media (min-width: 768px) {
   .footer-grid {
-    border: 10px solid red;
     grid-template-columns: repeat(2, 1fr);
   }
 }
