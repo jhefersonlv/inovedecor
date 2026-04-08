@@ -711,29 +711,30 @@ function closePortfolioModal() {
 // Initialize contact form
 function initContactForm() {
   const form = document.getElementById('contact-form');
-  
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(form);
-    const data = {
-      name: formData.get('name'),
-      phone: formData.get('phone'),
-      city: formData.get('city'),
-      projectType: formData.get('projectType'),
-      description: formData.get('description'),
-    };
-    
-    // Simulate form submission
-    console.log('Dados do formulário:', data);
-    alert(`Obrigado, ${data.name}! Seu orçamento foi enviado com sucesso. Entraremos em contato em breve!`);
-    
-    // Reset form
-    form.reset();
-  });
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        city: formData.get('city'),
+        projectType: formData.get('projectType'),
+        description: formData.get('description'),
+      };
+      
+      console.log('Dados do formulário:', data);
+      alert(`Obrigado, ${data.name}! Seu orçamento foi enviado com sucesso. Entraremos em contato em breve!`);
+      
+      form.reset();
+    });
+  }
   
   // Recreate icons after form elements are ready
-  lucide.createIcons();
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 // Initialize WhatsApp tooltip
@@ -764,42 +765,77 @@ window.addEventListener("mousemove", (e) => {
   heroBg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
 });
 
+/* ===============================
+   3.5️⃣ WIZARD: MOSTRAR ÁREAS
+================================= */
+const wizardAreas = [
+  { id: 'kitchen', name: 'Cozinha', icon: 'cooking-pot', img: 'assets/images/kitchen.jpg' },
+  { id: 'bathroom', name: 'Banheiro', icon: 'bath', img: 'assets/images/bathroom.jpg' },
+  { id: 'gourmet', name: 'Área Gourmet', icon: 'flame', img: 'assets/images/gourmet.jpg' },
+  { id: 'living-room', name: 'Sala', icon: 'armchair', img: 'assets/images/room.jpg' },
+  { id: 'stair', name: 'Escada', icon: 'trending-up', img: 'assets/images/stair.jpeg' },
+  { id: 'external', name: 'Área Externa', icon: 'sun', img: 'assets/images/outside.jpg' }
+];
+
+function openWizardAreas(modal, modalContent) {
+  modalContent.innerHTML = `
+    <h2>Passo 1: Selecione o Ambiente</h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 2rem;">Para qual ambiente você deseja o orçamento?</p>
+    <div class="showroom">
+      ${wizardAreas.map(area => `
+        <div class="showroom-card" data-area="${area.id}">
+          <i data-lucide="${area.icon}" class="showroom-icon"></i>
+          <div class="showroom-name">${area.name}</div>
+          <img class="image-bg" src="${area.img}" alt="${area.name}">
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  modal.classList.add('active');
+  
+  // Recreate icons for the dynamically injected Lucide icons
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  const areaCards = modalContent.querySelectorAll('.showroom-card');
+  areaCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const selectedArea = card.dataset.area;
+      openMaterialsModal(selectedArea, modal, modalContent);
+    });
+  });
+}
+
 // Showroom - Initialize
 function initShowroom() {
   const modal = document.querySelector('.modal');
   const modalContent = document.querySelector('.modal-content');
-  const modalClose = document.querySelector('.modal-close');
 
-  const areaContainer = document.querySelector('.showroom');
+  const startBtn = document.getElementById('btn-start-wizard');
+  const contactStartBtn = document.getElementById('btn-contact-wizard');
 
-  if (!areaContainer) return; // Se não encontrar o container, sai
+  if (startBtn) {
+    startBtn.addEventListener('click', () => {
+      openWizardAreas(modal, modalContent);
+    });
+  }
 
-  areaContainer.addEventListener('click', (event) => {
-  
-    // Procura o elemento mais próximo com a classe area-card
-    const clickedCard = event.target.closest('.showroom-card');
-
-    // Se não clicou em um card, sai da função
-    if (!clickedCard) return;
-
-    // Aqui você sabe exatamente qual foi clicado
-    const selectedArea = clickedCard.dataset.area;
-
-    // Abre o modal
-    openMaterialsModal(selectedArea, modal, modalContent);
-
-  });
+  if (contactStartBtn) {
+    contactStartBtn.addEventListener('click', () => {
+      openWizardAreas(modal, modalContent);
+    });
+  }
 
   // Fechar modal ao clicar no X
   modal.addEventListener('click', (e) => {
-    // Se clicou no X
     if (e.target.classList.contains('modal-close')) {
       e.stopPropagation();
       modal.classList.remove('active');
       return;
     }
     
-    // Se clicou fora do modal-box (na área escura)
     if (e.target === modal) {
       modal.classList.remove('active');
     }
@@ -820,7 +856,9 @@ function openMaterialsModal(area, modal, modalContent) {
     });
 
   modalContent.innerHTML = `
-    <h2>Materiais disponíveis</h2>
+    <button class="back-btn" id="back-to-areas">← Voltar</button>
+    <h2>Passo 2: Selecione a Pedra</h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 2rem;">As opções abaixo estão disponíveis para o seu ambiente.</p>
     <div class="materials-grid">
       ${materialsEntries.map(({ id, info }) => {
         const displayName = (info?.name || info?.nome || formatMaterialName(id));
@@ -839,6 +877,13 @@ function openMaterialsModal(area, modal, modalContent) {
   `;
 
   modal.classList.add('active');
+
+  const backBtn = document.getElementById('back-to-areas');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      openWizardAreas(modal, modalContent);
+    });
+  }
 
   const materialButtons = document.querySelectorAll('.material-btn');
 
@@ -901,12 +946,25 @@ function openProjectsByMaterial(area, material, modal, modalContent) {
         </div>
       `).join('') : `<p style="grid-column: 1 / -1; color: rgba(255,255,255,0.55); margin: 0.5rem 0 0;">Ainda não temos serviços cadastrados para esta pedra neste ambiente.</p>`}
     </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+      <button class="btn-gradient" id="btn-proceed-wizard" style="padding: 1.2rem 3rem; font-size: 1.1rem; border-radius: 8px;">
+        Prosseguir para o próximo passo →
+      </button>
+    </div>
   `;
 
   document.querySelector('.back-btn')
     .addEventListener('click', () => {
       openMaterialsModal(area, modal, modalContent);
     });
+
+  const proceedBtn = document.getElementById('btn-proceed-wizard');
+  if (proceedBtn) {
+    proceedBtn.addEventListener('click', () => {
+      openWizardSinks(area, material, modal, modalContent);
+    });
+  }
 }
 
 
@@ -962,7 +1020,174 @@ function isMaterialAvailable(info) {
 
 
 /* ===============================
-   6️⃣  FECHAR MODAL
+   6️⃣  WIZARD: ESCOLHER CUBAS E FORM FINAL
 ================================= */
 
-// Modal listeners are initialized inside initShowroom() function
+const sinksOptions = {
+  kitchen_gourmet: [
+    { id: 'inox-tradicional', name: 'Cuba Inox Tradicional', img: 'assets/images/cta.jpg' },
+    { id: 'inox-dupla', name: 'Cuba Inox Dupla', img: 'assets/images/cta.jpg' },
+    { id: 'esculpida-pedra', name: 'Cuba Esculpida na Própria Pedra', img: 'assets/images/cta.jpg' },
+    { id: 'nenhuma', name: 'Não quero adicionar cuba', img: '' }
+  ],
+  bathroom: [
+    { id: 'esculpida-rampa', name: 'Cuba Esculpida de Rampa', img: 'assets/images/cta.jpg' },
+    { id: 'esculpida-fundo-reto', name: 'Cuba Esculpida Fundo Reto', img: 'assets/images/cta.jpg' },
+    { id: 'louca-apoio', name: 'Cuba Louça de Apoio', img: 'assets/images/cta.jpg' },
+    { id: 'nenhuma', name: 'Não quero adicionar cuba', img: '' }
+  ]
+};
+
+function openWizardSinks(area, material, modal, modalContent) {
+  // Somente Cozinha, Gourmet e Banheiro tem seleção de cuba
+  if (!['kitchen', 'gourmet', 'bathroom'].includes(area)) {
+    openWizardFinalForm(area, material, 'Não se aplica', modal, modalContent);
+    return;
+  }
+
+  const options = area === 'bathroom' ? sinksOptions.bathroom : sinksOptions.kitchen_gourmet;
+
+  modalContent.innerHTML = `
+    <button class="back-btn" id="back-to-material">← Voltar</button>
+    <h2>Passo 3: Adicionar uma Cuba?</h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 2rem;">Deseja adicionar uma cuba para o seu projeto? Selecione uma opção abaixo:</p>
+    
+    <div class="materials-grid">
+      ${options.map(opt => `
+        <button 
+          class="material-btn sink-btn" 
+          data-sink="${opt.name}"
+          style="${opt.img ? `background-image: url('${opt.img}')` : `background: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.2);`}"
+        >
+        ${opt.id === 'nenhuma' ? `<i data-lucide="x" style="color:#ff4d4d; width: 3rem; height: 3rem; margin-bottom: 1.5rem;"></i>` : ''}
+        <span style="${opt.id === 'nenhuma' ? 'background: transparent; position: relative; bottom: auto; text-align: center;' : ''}">${opt.name}</span>
+        </button>
+      `).join('')}
+    </div>
+  `;
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  document.getElementById('back-to-material').addEventListener('click', () => {
+    openProjectsByMaterial(area, material, modal, modalContent);
+  });
+
+  const sinkButtons = modalContent.querySelectorAll('.sink-btn');
+  sinkButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedSink = btn.dataset.sink;
+      openWizardFinalForm(area, material, selectedSink, modal, modalContent);
+    });
+  });
+}
+
+function openWizardFinalForm(area, material, sink, modal, modalContent) {
+  const areaName = wizardAreas.find(a => a.id === area)?.name || area;
+  const materialInfo = materialsData[material] || {};
+  const materialName = materialInfo.name || materialInfo.nome || material;
+  const materialImgUrl = getMaterialImageUrl(material, materialInfo);
+
+  let sinkImgUrl = null;
+  if (['kitchen', 'gourmet', 'bathroom'].includes(area)) {
+    const sinkOptionsList = area === 'bathroom' ? sinksOptions.bathroom : sinksOptions.kitchen_gourmet;
+    const sinkData = sinkOptionsList.find(s => s.name === sink);
+    if (sinkData && sinkData.img) {
+      sinkImgUrl = sinkData.img;
+    }
+  }
+
+  modalContent.innerHTML = `
+    <button class="back-btn" id="back-to-sinks">← Voltar</button>
+    <h2>Último Passo: Informações de Contato</h2>
+    
+    <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid var(--color-primary); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center;">
+      <div>
+        <h4 style="margin-bottom: 0.8rem; color: var(--color-primary); font-size: 1.1rem;">Resumo do seu projeto:</h4>
+        <p style="margin-bottom: 0.4rem;"><strong>Ambiente:</strong> ${areaName}</p>
+        <p style="margin-bottom: 0.4rem;"><strong>Pedra:</strong> ${materialName}</p>
+        ${sink !== 'Não se aplica' ? `<p style="margin-bottom: 0;"><strong>Cuba:</strong> ${sink}</p>` : ''}
+      </div>
+
+      <div style="display: flex; gap: 1rem;">
+        <div style="text-align: center;">
+          <a href="${materialImgUrl}" target="_blank" style="display: block; border-radius: 8px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="${materialImgUrl}" alt="${materialName}" style="width: 80px; height: 80px; object-fit: cover; display: block;">
+          </a>
+          <span style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.4rem; display: block;">Pedra</span>
+        </div>
+        ${sinkImgUrl && sink !== 'Não quero adicionar cuba' ? `
+        <div style="text-align: center;">
+          <a href="${sinkImgUrl}" target="_blank" style="display: block; border-radius: 8px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="${sinkImgUrl}" alt="${sink}" style="width: 80px; height: 80px; object-fit: cover; display: block;">
+          </a>
+          <span style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.4rem; display: block;">Cuba</span>
+        </div>
+        ` : ''}
+      </div>
+    </div>
+
+    <form id="wizard-form" class="contact-form" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.2rem; width: 100%;">
+      <div class="form-group" style="margin-bottom:0">
+        <label class="form-label" style="font-size: 0.95rem;">Nome Completo *</label>
+        <input type="text" id="wiz-name" required class="form-input" placeholder="Seu nome">
+      </div>
+      <div class="form-row" style="margin-bottom:0">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label" style="font-size: 0.95rem;">Telefone/WhatsApp *</label>
+          <input type="tel" id="wiz-phone" required class="form-input" placeholder="(00) 00000-0000">
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label" style="font-size: 0.95rem;">Cidade *</label>
+          <input type="text" id="wiz-city" required class="form-input" placeholder="Sua cidade">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" style="font-size: 0.95rem;">Observações sobre as medidas (Opcional)</label>
+        <textarea id="wiz-obs" rows="3" class="form-textarea" placeholder="Tem alguma medida aproximada ou detalhe do projeto?"></textarea>
+      </div>
+
+      <button type="submit" class="btn-gradient" style="padding: 1.2rem; font-size: 1.1rem; border-radius: 8px; margin-top: 1rem; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center;">
+        <i data-lucide="send" style="margin-right:10px;"></i> Encaminhar Orçamento pelo WhatsApp
+      </button>
+    </form>
+  `;
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  document.getElementById('back-to-sinks').addEventListener('click', () => {
+    if (!['kitchen', 'gourmet', 'bathroom'].includes(area)) {
+      openProjectsByMaterial(area, material, modal, modalContent);
+    } else {
+      openWizardSinks(area, material, modal, modalContent);
+    }
+  });
+
+  const form = document.getElementById('wizard-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nome = document.getElementById('wiz-name').value;
+    const cidade = document.getElementById('wiz-city').value;
+    const obs = document.getElementById('wiz-obs').value;
+    
+    let text = `Olá! Vim pelo site e gostaria de solicitar um orçamento:\n\n`;
+    text += `*🙎‍♂️ Nome:* ${nome}\n`;
+    text += `*📍 Cidade:* ${cidade}\n`;
+    text += `*🏠 Ambiente:* ${areaName}\n`;
+    text += `*💎 Pedra Escolhida:* ${materialName}\n`;
+    if(sink !== 'Não se aplica' && sink !== 'Não quero adicionar cuba') {
+      text += `*🚰 Tipo de Cuba:* ${sink}\n`;
+    }
+    if (obs) {
+      text += `*📝 Observações:* ${obs}\n`;
+    }
+
+    const phoneNumber = '11972883448';
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    
+    modal.classList.remove('active');
+  });
+}

@@ -36,7 +36,7 @@
           <button onclick="scrollToSection('services')" class="nav-link">Serviços</button>
           <button onclick="scrollToSection('portfolio')" class="nav-link">Portfólio</button>
           <button onclick="scrollToSection('differentials')" class="nav-link">Diferenciais</button>
-          <button onclick="scrollToSection('showroom')" class="nav-link">Showroom</button>
+          <button onclick="scrollToSection('showroom')" class="nav-link">Montar orçamento</button>
           <button onclick="scrollToSection('testimonials')" class="nav-link">Depoimentos</button>
           <button onclick="scrollToSection('contact')" class="nav-link">Contato</button>
         </div>
@@ -83,8 +83,8 @@
         </p>
 
         <div class="hero-buttons animate-fade-in-up animation-delay-400">
-          <button onclick="scrollToSection('contact')" class="btn-primary">
-            Solicitar Orçamento
+          <button onclick="scrollToSection('showroom')" class="btn-primary">
+            Montar meu orçamento personalizado
             <i data-lucide="arrow-right"></i>
           </button>
           <button onclick="openWhatsApp()" class="btn-secondary">
@@ -262,7 +262,8 @@
                   style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
                   <a href="https://www.instagram.com/reel/DVRDC-TkVOm/?utm_source=ig_embed&amp;utm_campaign=loading"
                     style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
-                    target="_blank">Um post compartilhado por Inove Decor (@inovedecor_porcelanataria)</a></p>
+                    target="_blank">Um post compartilhado por Inove Decor (@inovedecor_porcelanataria)</a>
+                </p>
               </div>
             </blockquote>
             <script async src="//www.instagram.com/embed.js"></script>
@@ -371,7 +372,7 @@
 
         <div class="section-cta animate-on-scroll">
           <button onclick="scrollToSection('contact')" class="btn-gradient">
-            Solicite Seu Orçamento Personalizado
+            Montar meu orçamento personalizado
           </button>
         </div>
       </div>
@@ -498,7 +499,7 @@
           </div>
         </div>
 
-        <!-- Showroom -->
+        <!-- Showroom Modal -->
         <div class="modal">
           <div class="modal-box">
             <span class="modal-close">&times;</span>
@@ -509,43 +510,13 @@
         <div id="showroom" class="cta-block animate-on-scroll">
           <div class="cta-block-inner">
             <h3>Pronto Para Transformar Seu Ambiente?</h3>
-            <p>Encontre a pedra perfeita para seu projeto e veja nossas indicações e serviços em nosso showroom</p>
-            <div class="showroom animate-on-scroll">
-              <div class="showroom-cta">
-                <img src="assets/images/cta.jpg" alt="">
-              </div>
-              <div class="showroom-card" data-area="kitchen">
-                <i data-lucide="cooking-pot" class="showroom-icon"></i>
-                <div class="showroom-name">Cozinha</div>
-                <img class="image-bg" src="assets/images/kitchen.jpg" alt="">
-              </div>
-              <div class="showroom-card" data-area="bathroom">
-                <i data-lucide="bath" class="showroom-icon"></i>
-                <div class="showroom-name">Banheiro</div>
-                <img class="image-bg" src="assets/images/bathroom.jpg" alt="">
-              </div>
-              <div class="showroom-card" data-area="gourmet">
-                <i data-lucide="flame" class="showroom-icon"></i>
-                <div class="showroom-name">Área Gourmet</div>
-                <img class="image-bg" src="assets/images/gourmet.jpg" alt="">
-              </div>
-              <div class="showroom-card" data-area="living-room">
-                <i data-lucide="armchair" class="showroom-icon"></i>
-                <div class="showroom-name">Sala</div>
-                <img class="image-bg" src="assets/images/room.jpg" alt="">
-              </div>
-              <div class="showroom-card" data-area="stair">
-                <i data-lucide="trending-up" class="showroom-icon"></i>
-                <div class="showroom-name">Escada</div>
-                <img class="image-bg" src="assets/images/stair.jpeg" alt="">
-              </div>
-              <div class="showroom-card" data-area="external">
-                <i data-lucide="sun" class="showroom-icon"></i>
-                <div class="showroom-name">Área Externa</div>
-                <img class="image-bg" src="assets/images/outside.jpg" alt="">
-              </div>
-            </div>
-            <button class="btn-dark btn-showroom">Selecione o seu ambiente</button>
+            <p>
+              Monte o orçamento ideal para o seu projeto com nosso novo assistente virtual! Selecione o seu ambiente,
+              escolha a melhor pedra e personalize seus detalhes.
+            </p>
+            <button id="btn-start-wizard" class="btn-gradient cta-wizard-btn">
+              Montar o meu orçamento <i data-lucide="calculator"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -632,83 +603,10 @@
         </div>
       </div>
     </section>
-
-    <!-- Contato -->
-    <section id="contact" class="section section-dark">
-      <div class="container">
-        <div class="contact-wrap">
-          <div class="section-header animate-on-scroll">
-            <h2 class="section-title">
-              Solicite Seu <span class="highlight">Orçamento</span>
-            </h2>
-            <div class="section-underline"></div>
-            <p class="section-desc" style="margin-bottom: 0;">
-              Preencha o formulário abaixo e receba um orçamento personalizado sem compromisso
-            </p>
-          </div>
-
-          <form id="contact-form" class="contact-form animate-on-scroll">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">
-                  <i data-lucide="user"></i>
-                  Nome Completo *
-                </label>
-                <input type="text" name="name" required class="form-input" placeholder="Seu nome">
-              </div>
-              <div class="form-group">
-                <label class="form-label">
-                  <i data-lucide="phone"></i>
-                  Telefone/WhatsApp *
-                </label>
-                <input type="tel" name="phone" required class="form-input" placeholder="(00) 00000-0000">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">
-                  <i data-lucide="map-pin"></i>
-                  Cidade *
-                </label>
-                <input type="text" name="city" required class="form-input" placeholder="Sua cidade">
-              </div>
-              <div class="form-group">
-                <label class="form-label">
-                  <i data-lucide="briefcase"></i>
-                  Tipo de Projeto *
-                </label>
-                <select name="projectType" required class="form-select">
-                  <option value="">Selecione...</option>
-                  <option value="Bancada de Cozinha">Bancada de Cozinha</option>
-                  <option value="Ilha Gourmet">Ilha Gourmet</option>
-                  <option value="Lavatório">Lavatório</option>
-                  <option value="Pia">Pia</option>
-                  <option value="Revestimento">Revestimento</option>
-                  <option value="Outro">Outro</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label class="form-label">
-                <i data-lucide="message-square"></i>
-                Descrição do Projeto *
-              </label>
-              <textarea name="description" required rows="5" class="form-textarea"
-                placeholder="Conte-nos mais sobre seu projeto: medidas aproximadas, estilo desejado, prazo, etc."></textarea>
-            </div>
-            <button type="submit" class="form-submit">
-              <i data-lucide="send"></i>
-              Enviar Solicitação de Orçamento
-            </button>
-            <p class="form-note">* Campos obrigatórios. Seus dados estão seguros e serão usados apenas para contato.</p>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer id="contact" class="footer">
     <div>
       <div class="footer-grid container">
         <div class="footer-brand animate-on-scroll">

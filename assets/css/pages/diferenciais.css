@@ -1,5 +1,3 @@
-
-
 /* --------------------------------------------------------------------------
    10. DIFERENCIAIS
    -------------------------------------------------------------------------- */
@@ -18,7 +16,7 @@
   background: linear-gradient(to bottom right, var(--color-gray-900), var(--color-gray-800));
   padding: 2rem;
   border-radius: var(--radius-xl);
-  height: 100%;  
+  height: 100%;
   border: 2px solid transparent;
   transition: box-shadow var(--transition-base), border-color var(--transition-base);
 }
@@ -93,28 +91,67 @@
 }
 
 .cta-block-inner {
-  background: linear-gradient(to bottom right, var(--color-gray-100), var(--color-gray-300));
+  position: relative;
+  background-image: linear-gradient(to right, rgba(15, 15, 15, 0.88), rgba(15, 15, 15, 0.65)), url(../../images/cta.jpg);
+  background-size: cover;
+  background-position: center;
   color: var(--color-white);
-  padding: 0.75rem 1.5rem;
+  padding: 3rem 1.5rem;
   border-radius: var(--radius-xl);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-block-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
 }
 
 .cta-block h3 {
   font-size: 1.875rem;
   font-weight: 700;
-  color: var(--color-black);
+  color: var(--color-white);
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-block p {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.125rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+.cta-wizard-btn {
+  font-size: 1.1rem; 
+  padding: 1.2rem 2.5rem; 
+  border-radius: var(--radius-md);
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-wizard-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
 }
 
 .btn-dark {
@@ -138,9 +175,11 @@
   .differentials-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .cta-block-inner {
-    padding: 4rem;
+    padding: 5rem 3rem;
   }
+
   .cta-block h3 {
     font-size: 2.25rem;
   }
