@@ -26,6 +26,7 @@
         align-items: center;
         border-radius: var(--radius-xl);
         transition: transform 0.5s ease;   
+        color: var(--color-white);
              
     
     .image-bg {
@@ -61,7 +62,6 @@
     }
 
     .showroom-icon {
-        color: var(--color-gray-800);
         width: 2rem;
         height: 2rem;
         z-index: 2;
@@ -70,7 +70,6 @@
     .showroom-name {
         font-size: 1.25rem;
         font-weight: 700;
-        color: var(--color-gray-800);
         margin-bottom: 0.5rem;
     }
     
